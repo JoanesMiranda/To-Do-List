@@ -6,18 +6,75 @@
         <link rel="stylesheet" type="text/css"  href="bibliotecas/bootstrap/css/bootstrap.min.css" >
         <link rel="stylesheet" type="text/css"  href="bibliotecas/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css"  href="css/sb-admin.min.css" >
-        <title>Hello, world!</title>
+        <title>Principal</title>
     </head>
 
-    <body>
-        <h1>Hello, world!</h1>
+    <body class="bg-dark fixed-nav sticky-footer" id="pageTop">
 
-        
-        
-        
-        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <a class="navbar-brand" href="">Nome do Usuario</a>
+            <button class="navbar-toggler navbar-toggler-rigth" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <ul class="navbar-nav navbar-sidenav">
+                    <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-fw fa-clipboard"> </i>
+                            <span class="nav-link-text">Lista de Tarefas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-fw fa-table"> </i>
+                            <span class="nav-link-text">Tabelas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-fw fa-wrench"> </i>
+                            <span class="nav-link-text">Components</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-fw fa-file"> </i>
+                            <span class="nav-link-text">Paginas</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar sidenav-toggler">
+                    <li class="nav-item">
+                        <a id="sidenavToggler" class="nav-link text-center">
+                            <i class="fa fa-fw fa-angle-left"></i>                           
+                        </a>
+                    </li> 
+                </ul>
+            </div>
+        </nav>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                     <li class="breadcrumb-item">
+                      Pagina em Branco
+                    </li>
+                </ol>
+            </div>
+            <footer class="sticky-footer">
+                <div class="container">
+                    <div class="text-center">
+                        <small>Copyright To-Do List 2018</small>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
         <script src="bibliotecas/jquery/jquery.min.js" ></script>
         <script src="bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
         <script src="bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
+        <script type="text/javascript" src="js/sb-admin.js" ></script>
     </body>
 </html>
