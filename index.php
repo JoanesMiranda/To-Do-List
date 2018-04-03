@@ -42,13 +42,33 @@
                             <span class="nav-link-text">Paginas</span>
                         </a>
                     </li>
+
                 </ul>
-                <ul class="navbar sidenav-toggler">
+                <ul class="navbar-nav sidenav-toggler">
                     <li class="nav-item">
                         <a id="sidenavToggler" class="nav-link text-center">
                             <i class="fa fa-fw fa-angle-left"></i>                           
                         </a>
                     </li> 
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Pesquisar por...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </li>
+                    <li class = "nav-item">
+                        <a class="nav-link "href="">
+                            <i class="fa fa-sign-out">Logout</i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -58,8 +78,8 @@
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                     </li>
-                     <li class="breadcrumb-item">
-                      Pagina em Branco
+                    <li class="breadcrumb-item">
+                        Pagina em Branco
                     </li>
                 </ol>
             </div>
