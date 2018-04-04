@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <ul class="navbar-nav navbar-sidenav">
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
-                        <a class="nav-link" href="index.php?tarefas">
+                        <a class="nav-link collapse" href="index.php?tarefas">
                             <i class="fa fa-fw fa-clipboard"> </i>
                             <span class="nav-link-text">Lista de Tarefas</span>
                         </a>
@@ -29,7 +29,7 @@
                             <i class="fa fa-fw fa-file"> </i>
                             <span class="nav-link-text">Paginas</span>
                         </a>
-                        <ul class="sidenav-second-level collapse"id="linksPaginas">
+                        <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
                                 <a href="index.php?login">Pagina de Login</a>
                             </li>
@@ -83,7 +83,6 @@
 
             <!--Inicio do corpo do site -->
             <div class="container-fluid">
-
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
@@ -93,12 +92,14 @@
                     </li>
                 </ol>
                 <?php
-                if (isset($_REQUEST["login"])) {
-                    include "./login.php";
+                if (isset($_REQUEST["tarefas"])) {
+                    include "./tarefas.php";
                 } elseif (isset($_REQUEST["registro"])) {
                     include "./registro.php";
                 } elseif (isset($_REQUEST["recuperar"])) {
                     include "./recuperar.php";
+                } elseif (isset($_REQUEST["login"])) {
+                    include "./login.php";
                 }
                 ?>
 
