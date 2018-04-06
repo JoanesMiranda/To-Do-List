@@ -24,8 +24,8 @@
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
-                        <div class="modal-header ">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Nova Tarefa</h5>
+                        <div class="modal-header badge-info">
+                            <h5 class="modal-title " id="exampleModalLabel">Nova Tarefa</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Cadastrar Tarefa</button>
+                                <button type="submit" class="btn btn-info">Cadastrar Tarefa</button>
                             </div>
                         </form>
                     </div>
@@ -78,8 +78,11 @@
             </div>
             <!-- Fim Formulario Modal -->
 
+
+
             <!-- Inicio da lista de tarefas -->
-            <div class="row">
+            <div class="row"><!-- inicio da linha da lista de tarefas -->
+
                 <div class="col-md-4  mt-4">
                     <h6>Segunda Feira, 03 de Abril de 2018</h6>
                     <div class="card card-login">    
@@ -89,17 +92,109 @@
                         </div> 
                         <div class="card-footer form-row">
                             <div class="col-sm-6">
-                                 <button type="button" class="btn btn-warning form-control">Editar</button>
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
                             </div>
                             <div class="col-sm-6">
-                                 <button type="button" class="btn btn-danger form-control">Excluir</button>
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
                             </div>
-                           
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-md-4  mt-4">
+                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
+                    <div class="card card-login">    
+                        <div class="card-body">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">This card has supporting text below </p>      
+                        </div> 
+                        <div class="card-footer form-row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+               <div class="col-md-4  mt-4">
+                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
+                    <div class="card card-login">    
+                        <div class="card-body">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">This card has supporting text below </p>      
+                        </div> 
+                        <div class="card-footer form-row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4  mt-4">
+                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
+                    <div class="card card-login">    
+                        <div class="card-body">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">This card has supporting text below </p>      
+                        </div> 
+                        <div class="card-footer form-row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4  mt-4">
+                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
+                    <div class="card card-login">    
+                        <div class="card-body">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">This card has supporting text below </p>      
+                        </div> 
+                        <div class="card-footer form-row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4  mt-4">
+                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
+                    <div class="card card-login">    
+                        <div class="card-body">
+                            <h4 class="card-title">Card title</h4>
+                            <p class="card-text">This card has supporting text below </p>      
+                        </div> 
+                        <div class="card-footer form-row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-warning form-control">Editar</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-danger form-control">Excluir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div><!-- Fim da linha da lista de tarefas -->
             <!-- Fim da lista de tarefas -->
+
         </div>
         <script src="../../bibliotecas/jquery/jquery.min.js" ></script>
         <script src="../../bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
