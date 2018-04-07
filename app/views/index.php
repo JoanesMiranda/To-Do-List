@@ -70,7 +70,7 @@
 
                     <!-- Inicio do item Logout do topo -->
                     <li class = "nav-item">
-                        <a class="nav-link "href="">
+                        <a class="nav-link" href="">
                             <i class="fa fa-sign-out">Logout</i>
                         </a>
                     </li>
@@ -83,14 +83,16 @@
 
             <!--Inicio do corpo do site -->
             <div class="container-fluid">
+
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <?php echo $pagina = "pagina em "; ?>
+                        <?php echo $pagina = "Lista de Tarefas"; ?>
                     </li>
                 </ol>
+
                 <?php
                 if (isset($_REQUEST["tarefas"])) {
                     include "./tarefas.php";
