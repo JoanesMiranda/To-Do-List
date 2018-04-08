@@ -1,15 +1,6 @@
-<!doctype html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
-        <title>Lista de Tarefas</title>
-    </head>
-    <body>
-        <!-- Inicio Formulario Modal -->
+
+
+        <!-- Inicio Formulario Modal EditarTarefa-->
         <div class="modal fade" id="editarTarefaModal" tabindex="-1" role="dialog" aria-labelledby="editarTareModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
@@ -59,14 +50,15 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-info">Cadastrar Tarefa</button>
+                            <button type="submit" class="btn btn-info">Salvar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- Fim Formulario Modal -->
-        <script src="../../bibliotecas/jquery/jquery.min.js" ></script>
-        <script src="../../bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
-    </body>
-</html>
+        <!-- Fim Formulario Modal Editar Tarefa-->
+
+
+
+
+    

@@ -7,11 +7,12 @@
         <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
         <title>Recuperar Senha</title>
+        <style type="text/css">.msg-erro{ color: red; font-size:12px } </style>
     </head>
     <body class ="bg-dark">
         <div class="container">
             <div class="card card-login mx-auto mt-5">
-                <div class="card-header text-center">Recuperar Senha</div>
+                <div class="card-header text-center badge-info">Recuperar Senha</div>
                 <div class="card-body">
                     <div class="text-center mt-4 mb-5">
                         <p>
@@ -19,12 +20,13 @@
                         Digite seu email e nós enviaremos instruções sobre como redefinir sua senha.
                         </p>
                     </div>
-                    <form method="POST" action="">
+                    <form method="POST" action="" name="formRecuperar" id="formRecuperar">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="Digite Seu Email">
+                            <span class='msg-erro msg-email'></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Recuperar Senha</button>
+                        <button type="submit" class="btn btn-info btn-block">Recuperar Senha</button>
                     </form>
                     <div class="form-group">
                         <div class="form-row">
@@ -39,6 +41,7 @@
                 </div>
             </div>
         </div>
+        <script src="../../bibliotecas/jquery/validaRecuperar.js" ></script>
         <script src="../../bibliotecas/jquery/jquery.min.js" ></script>
         <script src="../../bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
         <script src="../../bibliotecas/jquery-easing/jquery.easing.min.js" ></script>

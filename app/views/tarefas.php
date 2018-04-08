@@ -36,7 +36,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="POST" action="login.php">
+                        <form method="POST" action="">
                             <div class="modal-body">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -84,7 +84,7 @@
             </div>
             <!-- Fim Formulario Modal Nova Tarefa-->
             
-             <!-- Inicio Formulario Modal EditarTarefa-->
+             <!-- Inicio Formulario Modal EditarTarefa -->
         <div class="modal fade" id="editarTarefaModal" tabindex="-1" role="dialog" aria-labelledby="editarTareModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
@@ -94,7 +94,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="POST" action="login.php">
+                    <form method="POST" action="">
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -134,14 +134,14 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-info">Cadastrar Tarefa</button>
+                            <button type="submit" class="btn btn-info">Salvar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <!-- Fim Formulario Modal Editar Tarefa-->
-            
+           
 
             <!-- Inicio da lista de tarefas -->
             <div class="row"><!-- inicio da linha da lista de tarefas -->
@@ -155,8 +155,8 @@
                                     <i class="fa fa-fw fa-tags badge badge-pill badge-danger"> </i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
-                                    <a class="dropdown-item" href="">Excluir</a>
+                                    <a class="dropdown-item badge-light" href="" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
+                                    <a class="dropdown-item badge-light" href="">Excluir</a>
                                 </div>
                             </div>
                         </div>
