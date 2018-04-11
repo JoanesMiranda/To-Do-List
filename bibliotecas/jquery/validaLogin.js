@@ -1,12 +1,12 @@
 var form = document.getElementById("formLogin");
 
 if (form.addEventListener) {                   
-    form.addEventListener("submit", validaCadastro);
+    form.addEventListener("submit", validaLogin);
 } else if (form.attachEvent) {                  
-    form.attachEvent("onsubmit", validaCadastro);
+    form.attachEvent("onsubmit", validaLogin);
 }
 
-function validaCadastro(evt) {
+function validaLogin(evt) {
 
     var email = document.getElementById('email');
     var senha = document.getElementById('senha');

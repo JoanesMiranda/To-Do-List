@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css"  href="../../bibliotecas/bootstrap/css/bootstrap.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../css/estilos.css" >
         <title>Principal</title>
     </head>
 
@@ -31,13 +32,13 @@
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="index.php?login">Pagina de Login</a>
+                                <a href="login.php">Pagina de Login</a>
                             </li>
                             <li>
-                                <a href="index.php?recuperar">Pagina Recuperar</a>
+                                <a href="recuperar.php">Pagina Recuperar</a>
                             </li>
                             <li>
-                                <a href="index.php?registro">Pagina de Registro</a>
+                                <a href="registro.php">Pagina de Registro</a>
                             </li>
                         </ul>
                     </li>
@@ -92,19 +93,7 @@
                         <?php echo $pagina = "Lista de Tarefas"; ?>
                     </li>
                 </ol>
-
-                <?php
-                if (isset($_REQUEST["tarefas"])) {
-                    include "./tarefas.php";
-                } elseif (isset($_REQUEST["registro"])) {
-                    include "./registro.php";
-                } elseif (isset($_REQUEST["recuperar"])) {
-                    include "./recuperar.php";
-                } elseif (isset($_REQUEST["login"])) {
-                    include "./login.php";
-                }
-                ?>
-
+                <?php include "./tarefas.php"; ?>
             </div>
             <!--Fim do corpo do site -->
 
@@ -118,6 +107,8 @@
             </footer>
             <!-- fim do rodapé da pagina -->
         </div>
+        <script src="../../bibliotecas/jquery/validaNovaTarefa.js"></script>
+        <script src="../../bibliotecas/jquery/validaEditarTarefa.js"></script>
         <script src="../../bibliotecas/jquery/jquery.min.js" ></script>
         <script src="../../bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
         <script src="../../bibliotecas/jquery-easing/jquery.easing.min.js" ></script>

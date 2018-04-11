@@ -1,12 +1,12 @@
 var form = document.getElementById("formRegistro");
 
 if (form.addEventListener) {
-    form.addEventListener("submit", validaCadastro);
+    form.addEventListener("submit", validaRegistro);
 } else if (form.attachEvent) {
-    form.attachEvent("onsubmit", validaCadastro);
+    form.attachEvent("onsubmit", validaRegistro);
 }
 
-function validaCadastro(evt) {
+function validaRegistro(evt) {
     var nome = document.getElementById('nome');
     var email = document.getElementById('email');
     var senha = document.getElementById('senha');
@@ -39,7 +39,6 @@ function validaCadastro(evt) {
         contErro += 1;
     }
 
-   
 
     /* Validação do campo senha */
     caixa_senha = document.querySelector('.msg-senha');

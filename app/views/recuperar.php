@@ -6,8 +6,9 @@
         <link rel="stylesheet" type="text/css"  href="../../bibliotecas/bootstrap/css/bootstrap.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../css/estilos.css" >
         <title>Recuperar Senha</title>
-        <style type="text/css">.msg-erro{ color: red; font-size:12px } </style>
+
     </head>
     <body class ="bg-dark">
         <div class="container">
