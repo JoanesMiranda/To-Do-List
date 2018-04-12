@@ -11,10 +11,10 @@ function  validaNovaTarefa(evt) {
     var data = document.getElementById('data');
     var descricao = document.getElementById('descricao');
     var prioridade = document.getElementById('prioridade');
+    var status = document.getElementById('statusTarefa');
     var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     var contErro = 0;
-
-
+ 
     /* Validação do campo titulo */
     caixa_titulo = document.querySelector('.msg-titulo');
     if (titulo.value == "") {
@@ -54,13 +54,24 @@ function  validaNovaTarefa(evt) {
     }
 
     /* Validação do campo prioridade */
-    caixa_prioridade = document.querySelector('.msg-prioridade');
-    if (prioridade.value === null) {
-        caixa_prioridade.innerHTML = "Favor preencher a Prioridade";
+    //if(prioridade.options[prioridade.selectedIndex].value.toString() == "")
+      caixa_prioridade = document.querySelector('.msg-prioridade');
+    if (prioridade.value.toString() == "") {
+        caixa_prioridade.innerHTML = "Favor escolher a Prioridade";
         caixa_prioridade.style.display = 'block';
         contErro += 1;
     } else {
         caixa_prioridade.style.display = 'none';
+    }
+    
+      /* Validação do campo status da tarefa */
+      caixa_status = document.querySelector('.msg-status');
+    if (status.value.toString() == "") {
+        caixa_status.innerHTML = "Favor informe o andamento da tarefa";
+        caixa_status.style.display = 'block';
+        contErro += 1;
+    } else {
+        caixa_status.style.display = 'none';
     }
 
     if (contErro > 0) {

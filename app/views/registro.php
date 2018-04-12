@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
-         <link rel="stylesheet" type="text/css"  href="../../css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
+         <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
         <title>Registro</title>
     </head>
     <body class ="bg-dark">
@@ -74,11 +74,11 @@
                 </div>
             </div>
         </div>
-        <script src="../../bibliotecas/jquery/validaRegistro.js"></script>
-        <script src="../../bibliotecas/jquery/jquery.min.js"></script>
-        <script src="../../bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../../bibliotecas/jquery-easing/jquery.easing.min.js"></script>
-        <script type="text/javascript" src="../../bibliotecas/jquery/jquery.maskedinput.min.js"></script>
+        <script src="../../assets/bibliotecas/jquery/validaRegistro.js"></script>
+        <script src="../../assets/bibliotecas/jquery/jquery.min.js"></script>
+        <script src="../../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="../../assets/bibliotecas/jquery/jquery.maskedinput.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 $('#telefone').mask('(99) 99999 - 9999');

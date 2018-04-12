@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
         <title>Lista de Tarefas</title>
     </head>
     <body>
@@ -59,7 +59,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="prioridade">Nivel de Prioridade</label>
                                         <select name="prioridade" id="prioridade">
-                                            <option disabled="true" selected>Selecione...</option>
+                                            <option disabled="true" value="" selected>Selecione...</option>
                                             <option value="alta">Alta</option>
                                             <option value="media">Media</option>
                                             <option value="baixa"> Baixa</option>
@@ -69,10 +69,11 @@
                                     <div class="form-group col-md-6">
                                         <label for="statusTarefa">Andamento da Tarefa</label>
                                         <select name="statusTarefa" id="statusTarefa">
-                                            <option disabled="true" selected>Selecione...</option>
+                                            <option disabled="true" value="" selected>Selecione...</option>
                                             <option value="concluida">Concluida</option>
                                             <option value="não concluida">não concluida</option>
                                         </select>
+                                        <span class='msg-erro msg-status'></span>
                                     </div>
                                 </div>
                             </div>
@@ -102,38 +103,40 @@
                                     <div class="form-group col-md-6">
                                         <label for="titulo">Titulo</label>
                                         <input type="text" class="form-control" name="editTitulo" id="editTitulo" placeholder="Titulo da Tarefa">
-                                         <span class='msg-erro msg-editTitulo'></span>
+                                        <span class='msg-erro msg-editTitulo'></span>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="data">Data</label>
                                         <input type="date" class="form-control" name="editData" id="editData">
-                                         <span class='msg-erro msg-editData'></span>
+                                        <span class='msg-erro msg-editData'></span>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="descrição">Descrição</label>
                                         <textarea class="form-control" name="editDescricao" id="editDescricao" rows="3" placeholder="Descreva a sua Tarefa..."></textarea>
-                                         <span class='msg-erro msg-editDescricao'></span>
+                                        <span class='msg-erro msg-editDescricao'></span>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="prioridade">Nivel de Prioridade</label>
-                                        <select name="prioridade" id="prioridade">
-                                            <option disabled="true" selected>Selecione...</option>
+                                        <label for="editPrioridade">Nivel de Prioridade</label>
+                                        <select name="editPrioridade" id="editPrioridade">
+                                            <option disabled="true" value="" selected>Selecione...</option>
                                             <option value="alta">Alta</option>
                                             <option value="media">Media</option>
                                             <option value="baixa"> Baixa</option>
                                         </select>
+                                        <span class='msg-erro msg-editPrioridade'></span>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="prioridade">Andamento da Tarefa</label>
-                                        <select name="prioridade" id="prioridade">
-                                            <option disabled="true" selected>Selecione...</option>
+                                        <label for="editStatus">Andamento da Tarefa</label>
+                                        <select name="editStatus" id="editStatus">
+                                            <option disabled="true" value="" selected>Selecione...</option>
                                             <option value="concluida">Concluida</option>
                                             <option value="não concluida">não concluida</option>
                                         </select>
+                                        <span class='msg-erro msg-editStatus'></span>
                                     </div>
                                 </div>
                             </div>
@@ -171,10 +174,9 @@
                     </div>
                 </div>
                 <!-- Fim da lista de tarefas -->
- 
             </div>
         </div>
-        <script src="../../bibliotecas/jquery/jquery.min.js" ></script>
-        <script src="../../bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
+        <script src="../../assets/bibliotecas/jquery/jquery.min.js" ></script>
+        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
     </body>
 </html>

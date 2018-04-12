@@ -1,0 +1,16 @@
+{
+    "name": "joanes/to-do-list",
+    "description": "Lista de Tarefas Online",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joanes Miranda",
+            "email": "joanestecnico@gmail.com"
+        }
+    ],
+    "require": {},
+     "autoload": {
+        "psr-4": {"App\\": "app/"}
+    }
+}
