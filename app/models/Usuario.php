@@ -5,16 +5,23 @@ namespace App\Models;
 class Usuario {
 
     private $nome;
-    private $celular;
+    private $telefone;
     private $endereco;
     private $numero;
+
+    public function __construct($nome, $telefone, $endereco, $numero) {
+        $this->nome = $nome;
+        $this->telefone = $telefone;
+        $this->endereco = $endereco;
+        $this->numero = $numero;
+    }
 
     function getNome() {
         return $this->nome;
     }
 
-    function getCelular() {
-        return $this->celular;
+    function getTelefone() {
+        return $this->telefone;
     }
 
     function getEndereco() {
@@ -29,8 +36,8 @@ class Usuario {
         $this->nome = $nome;
     }
 
-    function setCelular($celular) {
-        $this->celular = $celular;
+    function setTelefone($telefone) {
+        $this->telefone = $telefone;
     }
 
     function setEndereco($endereco) {

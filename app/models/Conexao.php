@@ -6,7 +6,7 @@ class Conexao {
 
     private function __construct() {
         try {
-            self::$db = new PDO("mysql:host=localhost; dbname=bd_to_do_list", "root", "root");
+            self::$db = new PDO("mysql:host=localhost; dbname=todolist", "root", "root");
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$db->exec('SET NAMES utf8');
         } catch (PDOException $e) {
