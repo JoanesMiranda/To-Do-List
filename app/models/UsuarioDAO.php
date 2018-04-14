@@ -1,11 +1,9 @@
 <?php
-include './Conexao.php';
-namespace App\Models;
 
 class UsuarioDAO {
 
-    public function salvarBD(Usuario $usuario) {
-      
+    public function salvarUsuario(Usuario $usuario) {
+
         try {
             $db = Conexao::conecta();
             $sql = "INSERT INTO pessoa (nome,telefone,endereco,numero)"
@@ -19,7 +17,7 @@ class UsuarioDAO {
             $telefone = $usuario->getTelefone();
             $stmt->bindParam(2, $telefone);
 
-            $endereco = $usuario->getEndereco;
+            $endereco = $usuario->getEndereco();
             $stmt->bindParam(3, $endereco);
 
             $numero = $usuario->getNumero();
@@ -28,8 +26,10 @@ class UsuarioDAO {
             return $stmt->execute();
         } catch (PDOException $ex) {
 
-             echo "<script> alert('Erro ao alterar Atividade'); </script>" . $ex->getMessage();
+            echo "<script> alert('Erro'); </script>" . $ex->getMessage();
         }
     }
+
+   
 
 }

@@ -1,17 +1,31 @@
 <?php
 
-use App\Models\Usuario;
+    include '../models/Conexao.php';
+    include '../models/Usuario.php';
+    include '../models/UsuarioDAO.php';
+    include '../models/Login.php';
+    include '../models/LoginDAO.php';
 
-$nome =$_POST['nome'];
-$telefone = $_POST['telefone'];
-$endereco = $_POST['endereco'];
-$numero =$_POST['numero'];
+    $usuario = new Usuario();
+    $usuarioDao = new UsuarioDAO();
+    $login = new Login();
+    $loginDAO = new LoginDAO();
 
-$usuarioController = new UsuarioController(new Fachada());
-$usuarioController->inserir(new Usuario($nome, $telefone, $endereco, $numero));
+    $usuario->setNome($_POST['nome']);
+    $usuario->setTelefone($_POST['telefone']);
+    $usuario->setEndereco($_POST['endereco']);
+    $usuario->setNumero($_POST['numero']);
 
-class UsuarioController {
 
-   
+    if ($usuarioDao->salvarUsuario($usuario)) {
 
-}
+        $login->setEmail($_POST['email']);
+        $login->setSenha($_POST['senha']);
+        $login->setFk_usuario($loginDAO->retornaIdUsuario($_POST['nome']));
+
+        if ($loginDAO->salvarLogin($login)) {
+            echo "<script> alert('Salvo com sucesso'); </script>";
+            
+            header("Location: ../views/registro.php");
+        }
+    }

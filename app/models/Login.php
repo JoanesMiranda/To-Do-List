@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models;
-
 class Login {
 
     private $email;
     private $senha;
+    private $fk_usuario;
 
     function getEmail() {
         return $this->email;
@@ -21,6 +20,14 @@ class Login {
 
     function setSenha($senha) {
         $this->senha = $senha;
+    }
+
+    function getFk_usuario() {
+        return $this->fk_usuario;
+    }
+
+    function setFk_usuario($fk_usuario) {
+        $this->fk_usuario = $fk_usuario;
     }
 
 }

@@ -15,6 +15,7 @@ class Conexao {
     }
 
     public static function conecta() {
+
         if (!self::$db) {
             new Conexao();
         }
