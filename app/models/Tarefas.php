@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Models;
-
 class Tarefas {
 
     private $titulo;
@@ -9,6 +7,7 @@ class Tarefas {
     private $descricao;
     private $prioridade;
     private $status_tarefa;
+    private $fk_usuario;
 
     function getTitulo() {
         return $this->titulo;
@@ -49,5 +48,15 @@ class Tarefas {
     function setStatus_tarefa($status_tarefa) {
         $this->status_tarefa = $status_tarefa;
     }
+    
+    function getFk_usuario() {
+        return $this->fk_usuario;
+    }
+
+    function setFk_usuario($fk_usuario) {
+        $this->fk_usuario = $fk_usuario;
+    }
+
+
 
 }

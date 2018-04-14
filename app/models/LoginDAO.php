@@ -46,7 +46,7 @@ class LoginDAO {
 
     public function login($email, $senha) {
         $db = Conexao::conecta();
-        $sql = "SELECT email,senha FROM usuario WHERE email = ? AND senha = ?";
+        $sql = "SELECT email,senha FROM login WHERE email = ? AND senha = ?";
         $rs = $db->prepare($sql);
         $rs->bindParam(1, $email);
         $hashSenha = md5($senha);
@@ -56,13 +56,15 @@ class LoginDAO {
             if ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
                 session_start();
                 $_SESSION["email"] = $registro->email;
-                header("Location: tarefas.php");
+                header("Location: ../views/index.php");
             } else {
                 echo "<script> alert('Usuario ou Senha incorretos'); </script>";
+                echo "<script> document.location='../views/login.php'; </script>";
                 exit();
             }
         } else {
             echo "<script> alert('Usuario ou Senha incorretos'); </script>";
+            echo "<script> document.location='../views/login.php'; </script>";
             exit();
         }
     }

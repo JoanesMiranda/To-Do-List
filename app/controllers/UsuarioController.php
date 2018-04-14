@@ -20,12 +20,11 @@
     if ($usuarioDao->salvarUsuario($usuario)) {
 
         $login->setEmail($_POST['email']);
-        $login->setSenha($_POST['senha']);
+        $login->setSenha(md5($_POST['senha'].$_POST['email']));
         $login->setFk_usuario($loginDAO->retornaIdUsuario($_POST['nome']));
 
         if ($loginDAO->salvarLogin($login)) {
             echo "<script> alert('Salvo com sucesso'); </script>";
-            
-            header("Location: ../views/registro.php");
+            echo "<script> document.location= '../views/registro.php'; </script>";
         }
     }

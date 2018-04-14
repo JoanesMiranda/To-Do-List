@@ -9,6 +9,13 @@
         <title>Lista de Tarefas</title>
     </head>
     <body>
+        <?php
+        if (!isset($_SESSION["email"])) {
+            echo "<script> document.location = './login.php'; </script>";
+            exit();
+        }
+        ?>
+
         <div class="container-fluid">
             <div class="row">
                 <!-- Inicio dos botões da lista de tarefas-->
@@ -34,7 +41,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="POST" action="" name="formNovaTarefa" id="formNovaTarefa">
+                        <form method="POST" action="../controllers/TarefasController.php" name="formNovaTarefa" id="formNovaTarefa">
                             <div class="modal-body">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -150,31 +157,13 @@
             </div>
             <!-- Fim Formulario Modal Editar Tarefa-->
 
+              <!-- inicio da lista de tarefas -->
             <div class="row">
-                <!-- inicio da lista de tarefas -->
-                <div class="col-md-4  mt-4 mb-2">
-                    <h6>Segunda Feira, 03 de Abril de 2018</h6>
-                    <div class="card card-login">  
-                        <div class="card-header text-right">
-                            <div class="dropdown" >
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-fw fa-tags badge badge-pill badge-danger"> </i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item badge-light" href="" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
-                                    <a class="dropdown-item badge-light" href="">Excluir</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title text-justify">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de teste a</h5>
-                            <p class="card-text text-justify">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos,
-                                e vem sendo utilizado desde o século XVI, quando um </p>    
-                        </div> 
-                    </div>
-                </div>
-                <!-- Fim da lista de tarefas -->
+                
+            <?php include './cardsTarefas.php';  ?>
+                
             </div>
+             <!-- Fim da lista de tarefas -->
         </div>
         <script src="../../assets/bibliotecas/jquery/jquery.min.js" ></script>
         <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>

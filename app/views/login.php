@@ -14,7 +14,7 @@
             <div class="card card-login mx-auto mt-5">
                 <div class="card-header text-center badge-info">Login To-Do List</div>
                 <div class="card-body">
-                    <form method="POST" action="login.php" name="formLogin" id="formLogin">
+                    <form method="POST" action="../controllers/LoginController.php" name="formLogin" id="formLogin">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Digite Seu Email">

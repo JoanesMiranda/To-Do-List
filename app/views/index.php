@@ -12,6 +12,18 @@
     </head>
 
     <body class="bg-dark fixed-nav sticky-footer" id="pageTop">
+        <?php
+        session_start();
+        if (!isset($_SESSION["email"])) {
+            echo "<script> document.location = './login.php'; </script>";
+            exit();
+        } 
+        if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
+            unset($_SESSION["email"]);
+            echo "<script> document.location = './login.php'; </script>";
+            exit();
+        }
+        ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <a class="navbar-brand" href="">Nome do Usuario</a>
@@ -72,7 +84,7 @@
 
                     <!-- Inicio do item Logout do topo -->
                     <li class = "nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="index.php?logout=true">
                             <i class="fa fa-sign-out">Logout</i>
                         </a>
                     </li>
