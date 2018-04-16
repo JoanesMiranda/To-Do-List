@@ -18,10 +18,10 @@ class TarefasDAO {
 
             $descricao = $tarefa->getDescricao();
             $stmt->bindParam(3, $descricao);
-            
+
             $prioridade = $tarefa->getPrioridade();
             $stmt->bindParam(4, $prioridade);
-            
+
             $status = $tarefa->getStatus_tarefa();
             $stmt->bindParam(5, $status);
 
@@ -33,8 +33,8 @@ class TarefasDAO {
             echo "<script> alert('Erro ao Salvar Atividade'); </script> " . $ex->getMessage();
         }
     }
-    
-     public function retornaIdUsuario($email) {
+
+    public function retornaIdUsuario($email) {
         try {
             $db = Conexao::conecta();
             $sql = "SELECT idpessoa FROM pessoa WHERE idpessoa"
@@ -51,14 +51,13 @@ class TarefasDAO {
             echo "Erro ao retornar dados do usuario" . $ex->getMessage();
         }
     }
-    
+
     //lembrar de corrigir o select das tarefas
     public function listarAtividades($email) {
         try {
 
             $db = Conexao::conecta();
-            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = "
-                    . "(SELECT idlogin FROM login WHERE email = ?)";
+            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?)";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
 
@@ -73,8 +72,20 @@ class TarefasDAO {
             echo "erro ao listar as atividades" . $ex->getMessage();
         }
     }
-    
-    
-    
+
+    public function retornaPrioridade($prioridade) {
+        if ($prioridade == "alta") {
+            
+            $prioridade = "badge-danger";
+            
+        } else if ($prioridade == "media") {
+            
+            $prioridade = "badge-warning";
+            
+        } else {
+            $prioridade = "badge-info";
+        }
+        return $prioridade;
+    }
 
 }
