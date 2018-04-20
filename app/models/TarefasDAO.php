@@ -52,7 +52,6 @@ class TarefasDAO {
         }
     }
 
-    //lembrar de corrigir o select das tarefas
     public function listarAtividades($email) {
         try {
 
@@ -73,15 +72,33 @@ class TarefasDAO {
         }
     }
 
+    public function listarAtividadesById($id) {
+        try {
+
+            $db = Conexao::conecta();
+            $sql = "SELECT * FROM tarefas WHERE idtarefas = ?";
+            $rs = $db->prepare($sql);
+            $rs->bindParam(1, $id);
+
+            if ($rs->execute()) {
+                $dados = array();
+                while ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
+                    $dados[] = $registro;
+                }
+                return $dados;
+            }
+        } catch (PDOException $ex) {
+            echo "erro ao listar as atividades" . $ex->getMessage();
+        }
+    }
+
     public function retornaPrioridade($prioridade) {
         if ($prioridade == "alta") {
-            
+
             $prioridade = "badge-danger";
-            
         } else if ($prioridade == "media") {
-            
+
             $prioridade = "badge-warning";
-            
         } else {
             $prioridade = "badge-info";
         }

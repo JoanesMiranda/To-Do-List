@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <ul class="navbar-nav navbar-sidenav">
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
-                        <a class="nav-link collapse" href="index.php?tarefas">
+                        <a class="nav-link collapse" href="index.php">
                             <i class="fa fa-fw fa-clipboard"> </i>
                             <span class="nav-link-text">Lista de Tarefas</span>
                         </a>
