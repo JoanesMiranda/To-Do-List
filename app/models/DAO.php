@@ -1,5 +1,7 @@
-<?php
+// vai ser usado para refatorar o codigo futuramente
 
+
+<?php
 namespace App\Models;
 
 interface DAO {
