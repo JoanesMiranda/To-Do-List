@@ -1,85 +1,63 @@
-diff a/app/controllers/TarefasController.php b/app/controllers/TarefasController.php	(rejected hunks)
-@@ -1,60 +0,35 @@
--<?php
--
--include '../models/Tarefas.php';
--include '../models/TarefasDAO.php';
--include '../models/Conexao.php';
--
--$tarefasDAO = new TarefasDAO();
--$tarefaController = new TarefasController();
--
--session_start();
--$email = $_SESSION['email'];
--
--if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
--    $action = filter_input(INPUT_POST, 'action');
--
--    $titulo = filter_input(INPUT_POST, 'titulo');
--    $data = filter_input(INPUT_POST, 'data');
--    $descricao = filter_input(INPUT_POST, 'descricao');
--    $prioridade = filter_input(INPUT_POST, 'prioridade');
--    $status = filter_input(INPUT_POST, 'statusTarefa');
--    $fk = $tarefasDAO->retornaIdUsuario($email);
--    $tarefa = new Tarefas($titulo, $data, $descricao, $prioridade, $status, $fk);
--
--    if ($action == "salvar") {
--        $tarefaController->inserir($tarefa, $tarefasDAO);
--    }
--} else if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET') {
--    $action = filter_input(INPUT_GET, 'action');
--
--    $idTarefa = filter_input(INPUT_GET, 'idTarefa');
--
--    if ($action == "excluir") {
--        $tarefaController->excluir($idTarefa, $tarefasDAO);
--    }
--}
--
--class TarefasController {
--
--    public function inserir($tarefa, $tarefasDAO) {
-+    <?php
-+
-+    include '../models/Tarefas.php';
-+    include '../models/TarefasDAO.php';
-+    include '../models/Conexao.php';
-+
-+    $tarefa = new Tarefas();
-+    $tarefasDAO = new TarefasDAO();
-+    
-+    session_start();
-+    $email = $_SESSION['email'];
-+
-+    if ($tarefasDAO->retornaIdUsuario($email)) {
-+        $fk = $tarefasDAO->retornaIdUsuario($email);
-+        $tarefa->setTitulo($_POST['titulo']);
-+        $tarefa->setData($_POST['data']);
-+        $tarefa->setDescricao($_POST['descricao']);
-+        $tarefa->setPrioridade($_POST['prioridade']);
-+        $tarefa->setStatus_tarefa($_POST['statusTarefa']);
-+        $tarefa->setFk_usuario($fk);
- 
-         if ($tarefasDAO->cadastrarTarefa($tarefa)) {
-             echo "<script> alert('Salvo com sucesso'); </script>";
--
-             echo "<script> document.location ='../views/index.php'; </script>";
-         } else {
-             echo "<script> alert('Erro ao Salvar'); </script>";
-         }
-+    } else {
-+        echo "<script> alert('erro ao retorna ID do usuario'); </script>";
+
+<?php
+
+include '../models/Tarefas.php';
+include '../models/TarefasDAO.php';
+include '../models/Conexao.php';
+
+$tarefasDAO = new TarefasDAO();
+$tarefaController = new TarefasController();
+
+session_start();
+$email = $_SESSION['email'];
+
+if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
+    $action = filter_input(INPUT_POST, 'action');
+
+    $titulo = filter_input(INPUT_POST, 'titulo');
+    $data = filter_input(INPUT_POST, 'data');
+    $descricao = filter_input(INPUT_POST, 'descricao');
+    $prioridade = filter_input(INPUT_POST, 'prioridade');
+    $status = filter_input(INPUT_POST, 'statusTarefa');
+    $fk = $tarefasDAO->retornaIdUsuario($email);
+    $tarefa = new Tarefas($titulo, $data, $descricao, $prioridade, $status, $fk);
+
+    if ($action == "salvar") {
+        $tarefaController->inserir($tarefa, $tarefasDAO);
+    }
+} else if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET') {
+    $action = filter_input(INPUT_GET, 'action');
+
+    $idTarefa = filter_input(INPUT_GET, 'idTarefa');
+    if ($action == "excluir") {
+        $tarefaController->excluir($idTarefa, $tarefasDAO);
+    }
+}
+
+class TarefasController {
+
+    public function inserir($tarefa, $tarefasDAO) {
+  
+        if ($tarefasDAO->cadastrarTarefa($tarefa)) {
+            echo "<script> alert('Salvo com sucesso'); </script>";
+
+           echo "<script> document.location ='../views/index.php'; </script>";
+        } else {
+            echo "<script> alert('Erro ao Salvar'); </script>";
+        }
+    } else {
+        echo "<script> alert('erro ao retorna ID do usuario'); </script>";
      }
  
--    public function excluir($idTarefa, $tarefasDAO) {
- 
--        if ($tarefasDAO->excluirTarefa($idTarefa)) {
-+    class TarefasController {
- 
--            echo "<script> document.location ='../views/index.php'; </script>";
--        } else {
--            echo "<script> alert('Erro ao excluir a tarefa'); </script>";
--        }
-     }
--
--}
+    public function excluir($idTarefa, $tarefasDAO) {
+
+        if ($tarefasDAO->excluirTarefa($idTarefa)) {
+    class TarefasController {
+
+            echo "<script> document.location ='../views/index.php'; </script>";
+        } else {
+            echo "<script> alert('Erro ao excluir a tarefa'); </script>";
+       }
+    }
+
+}

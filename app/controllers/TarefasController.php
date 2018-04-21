@@ -4,39 +4,56 @@ include '../models/Tarefas.php';
 include '../models/TarefasDAO.php';
 include '../models/Conexao.php';
 
-$tarefa = new Tarefas();
 $tarefasDAO = new TarefasDAO();
+$tarefaController = new TarefasController();
 
 session_start();
 $email = $_SESSION['email'];
 
-if ($tarefasDAO->retornaIdUsuario($email)) {
+if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
+    $action = filter_input(INPUT_POST, 'action');
+
+    $titulo = filter_input(INPUT_POST, 'titulo');
+    $data = filter_input(INPUT_POST, 'data');
+    $descricao = filter_input(INPUT_POST, 'descricao');
+    $prioridade = filter_input(INPUT_POST, 'prioridade');
+    $status = filter_input(INPUT_POST, 'statusTarefa');
     $fk = $tarefasDAO->retornaIdUsuario($email);
-    $tarefa->setTitulo($_POST['titulo']);
-    $tarefa->setData($_POST['data']);
-    $tarefa->setDescricao($_POST['descricao']);
-    $tarefa->setPrioridade($_POST['prioridade']);
-    $tarefa->setStatus_tarefa($_POST['statusTarefa']);
-    $tarefa->setFk_usuario($fk);
+    $tarefa = new Tarefas($titulo, $data, $descricao, $prioridade, $status, $fk);
 
-    if ($tarefasDAO->cadastrarTarefa($tarefa)) {
-        echo "<script> alert('Salvo com sucesso'); </script>";
-        echo "<script> document.location ='../views/index.php'; </script>";
-    } else {
-        echo "<script> alert('Erro ao Salvar'); </script>";
+    if ($action == "salvar") {
+        $tarefaController->inserir($tarefa, $tarefasDAO);
     }
-} else {
-    echo "<script> alert('erro ao retorna ID do usuario'); </script>";
+} else if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET') {
+    $action = filter_input(INPUT_GET, 'action');
+
+    $idTarefa = filter_input(INPUT_GET, 'idTarefa');
+    if ($action == "excluir") {
+        $tarefaController->excluir($idTarefa, $tarefasDAO);
+    }
 }
-
-if(isset($_REQUEST['id'])){
-    $tarefasDAO->listarAtividadesById($_REQUEST['id']);
-   
-    
-}
-
-
 
 class TarefasController {
-    
+
+    public function inserir($tarefa, $tarefasDAO) {
+
+        if ($tarefasDAO->cadastrarTarefa($tarefa)) {
+            echo "<script> alert('Salvo com sucesso'); </script>";
+
+            echo "<script> document.location ='../views/index.php'; </script>";
+        } else {
+            echo "<script> alert('Erro ao Salvar'); </script>";
+        }
+    }
+
+    public function excluir($idTarefa, $tarefasDAO) {
+
+        if ($tarefasDAO->excluirTarefa($idTarefa)) {
+
+            echo "<script> document.location ='../views/index.php'; </script>";
+        } else {
+            echo "<script> alert('Erro ao excluir a tarefa'); </script>";
+        }
+    }
+
 }
