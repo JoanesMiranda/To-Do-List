@@ -52,6 +52,7 @@ class TarefasDAO {
         }
     }
 
+    //lembrar de corrigir o select das tarefas
     public function listarAtividades($email) {
         try {
 
@@ -74,25 +75,17 @@ class TarefasDAO {
 
     public function retornaPrioridade($prioridade) {
         if ($prioridade == "alta") {
+            
             $prioridade = "badge-danger";
+            
         } else if ($prioridade == "media") {
+            
             $prioridade = "badge-warning";
+            
         } else {
             $prioridade = "badge-info";
         }
         return $prioridade;
-    }
-
-    public function excluirTarefa($id) {
-        try {
-            $db = Conexao::conecta();
-            $sql = "DELETE FROM tarefas WHERE idtarefas = ?";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(1, $id);
-            return $stmt->execute();
-        } catch (PDOException $ex) {
-            echo "Erro ao excluir atividade" . $ex->getMessage();
-        }
     }
 
 }
