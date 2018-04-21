@@ -28,6 +28,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     $action = filter_input(INPUT_GET, 'action');
 
     $idTarefa = filter_input(INPUT_GET, 'idTarefa');
+
     if ($action == "excluir") {
         $tarefaController->excluir($idTarefa, $tarefasDAO);
     }

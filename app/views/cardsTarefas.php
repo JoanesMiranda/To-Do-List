@@ -21,8 +21,8 @@ $sd = new ArrayIterator($values);
                         <i class="fa fa-fw fa-tags badge badge-pill <?php echo $tarefasDAO->retornaPrioridade($sd->current()->prioridade); ?>"> </i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item badge-light" href="index.php?id=<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
-                        <a class="dropdown-item badge-light" href="index.php?id=<?php echo $sd->current()->idtarefas; ?>">Excluir</a>
+                        <a class="dropdown-item badge-light" href="" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
+                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir ">Excluir</a>
                     </div>
                 </div>
             </div>

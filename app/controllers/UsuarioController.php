@@ -28,3 +28,5 @@
             echo "<script> document.location= '../views/registro.php'; </script>";
         }
     }
+    
+    

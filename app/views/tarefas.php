@@ -1,10 +1,9 @@
-
+﻿
 <?php
 if (!isset($_SESSION["email"])) {
     echo "<script> document.location = './login.php'; </script>";
     exit();
 }
-
 ?>
 
 <div class="container-fluid">
@@ -33,6 +32,7 @@ if (!isset($_SESSION["email"])) {
                     </button>
                 </div>
                 <form method="POST" action="../controllers/TarefasController.php" name="formNovaTarefa" id="formNovaTarefa">
+                    <input type="hidden" name="action" value="salvar" >
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -85,9 +85,9 @@ if (!isset($_SESSION["email"])) {
     </div>
     <!-- Fim Formulario Modal Nova Tarefa-->
 
-    <!-- Inicio Formulario Modal EditarTarefa --> 
-     <?php include './editarTarefa.php'; ?>
-     <!--Fim Formulario Modal Editar Tarefa-->
+    <!-- Inicio Formulario Modal EditarTarefa -->
+    <?php include './editarTarefa.php' ?>
+    <!-- Fim Formulario Modal Editar Tarefa-->
 
     <!-- inicio da lista de tarefas -->
     <div class="row">

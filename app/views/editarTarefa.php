@@ -1,4 +1,4 @@
-<!-- Inicio Formulario Modal EditarTarefa -->
+ <!-- Inicio Formulario Modal EditarTarefa -->
     <div class="modal fade" id="editarTarefaModal" tabindex="-1" role="dialog" aria-labelledby="editarTareModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
@@ -59,4 +59,4 @@
             </div>
         </div>
     </div>
-     <!--Fim Formulario Modal Editar Tarefa-->
+    <!-- Fim Formulario Modal Editar Tarefa-->
