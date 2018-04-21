@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-br">
     <head>
@@ -23,10 +22,11 @@
             echo "<script> document.location = './login.php'; </script>";
             exit();
         }
+    
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="">Nome do Usuario</a>
+            <a class="navbar-brand" href=""><?php //echo $usuarioDao->retornaUsuario($email)?></a>
             <button class="navbar-toggler navbar-toggler-rigth" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,18 +40,12 @@
                     </li>
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
                         <a class="nav-link nav-link-collapse collapse" href="#linksPaginas" data-toggle="collapse">
-                            <i class="fa fa-fw fa-file"> </i>
-                            <span class="nav-link-text">Paginas</span>
+                            <i class="fa fa-fw fa-gears"> </i>
+                            <span class="nav-link-text">Configurações</span>
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="login.php">Pagina de Login</a>
-                            </li>
-                            <li>
-                                <a href="recuperar.php">Pagina Recuperar</a>
-                            </li>
-                            <li>
-                                <a href="registro.php">Pagina de Registro</a>
+                                <a href="login.php">Idioma</a>
                             </li>
                         </ul>
                     </li>

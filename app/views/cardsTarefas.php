@@ -22,7 +22,7 @@ $sd = new ArrayIterator($values);
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item badge-light" href="" data-toggle="modal" data-target="#editarTarefaModal">Editar</a>
-                        <a class="dropdown-item badge-light" href="">Excluir</a>
+                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir ">Excluir</a>
                     </div>
                 </div>
             </div>

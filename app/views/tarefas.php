@@ -32,6 +32,7 @@ if (!isset($_SESSION["email"])) {
                     </button>
                 </div>
                 <form method="POST" action="../controllers/TarefasController.php" name="formNovaTarefa" id="formNovaTarefa">
+                    <input type="hidden" name="action" value="salvar" >
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">

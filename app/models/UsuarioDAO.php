@@ -30,6 +30,25 @@ class UsuarioDAO {
         }
     }
 
-   
+    public function retornaUsuario($email)
+    {
+        try
+        {
+            $db = Conexao::conecta();  
+            $sql = "SELECT nome FROM pessoa WHERE idpessoa = (SELECT fk_pessoa FROM login WHERE email = ?)";  
+            $rs = $db->prepare($sql);
+            $rs->bindParam(1,$email);
+            if($rs->execute())
+            {
+                $dados = array();
+                if($registro = $rs->fetch(PDO::FETCH_OBJ))
+                {
+                    return $registro->nome;
+                }
+            }
+        } catch (PDOException $ex) {
+            echo "Erro ao retornar dados do usuario".$ex->getMessage();
+        }
+    }
 
 }
