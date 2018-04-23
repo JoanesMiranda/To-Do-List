@@ -8,13 +8,13 @@ class Usuario {
     private $endereco;
     private $numero;
 
-//    
-//    public function __construct($nome, $telefone, $endereco, $numero) {
-//        $this->nome = $nome;
-//        $this->telefone = $telefone;
-//        $this->endereco = $endereco;
-//        $this->numero = $numero;
-//    }
+    
+    public function __construct($nome, $telefone, $endereco, $numero) {
+        $this->nome = $nome;
+        $this->telefone = $telefone;
+        $this->endereco = $endereco;
+        $this->numero = $numero;
+    }
 
     function getNome() {
         return $this->nome;

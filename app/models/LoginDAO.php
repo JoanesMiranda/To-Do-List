@@ -14,7 +14,7 @@ class LoginDAO {
             $email = $login->getEmail();
             $stmt->bindParam(1, $email);
 
-            $senha = $login->getSenha();
+            $senha = md5($login->getSenha().$email);
             $stmt->bindParam(2, $senha);
 
             $fk_usuario = $login->getFk_usuario();
@@ -22,8 +22,13 @@ class LoginDAO {
 
             return $stmt->execute();
         } catch (PDOException $ex) {
-
-            echo "<script> alert('Erro'); </script>" . $ex->getMessage();
+            $codigo = $ex->getCode();
+//            if($codigo == 23000){
+//                echo "<h5 style= 'color:red' align ='center'> Email Duplicado - "
+//                . "(O email digitado já está cadastrado no sistema)</h5>";
+//            }else{
+                echo "Error ".$ex->getMessage();
+//            }
         }
     }
 

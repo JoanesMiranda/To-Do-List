@@ -15,6 +15,7 @@
                 <div class="card-header text-center badge-info">Criar uma Conta</div>
                 <div class="card-body">
                     <form method="POST" action="../controllers/UsuarioController.php" name="formRegistro" id="formRegistro">
+                        <input type="hidden" name="action" value="salvar">
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
