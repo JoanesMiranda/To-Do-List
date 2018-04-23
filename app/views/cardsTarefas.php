@@ -3,15 +3,16 @@
 include '../models/TarefasDAO.php';
 include '../models/Conexao.php';
 
+
 $email = $_SESSION['email'];
+$prioridade = filter_input(INPUT_GET, 'prioridade');
 $tarefasDAO = new TarefasDAO();
-$values = $tarefasDAO->listarAtividades($email);
+$values = $tarefasDAO->listarAtividades($email, $prioridade);
 $sd = new ArrayIterator($values);
 ?>
 
 <?php while ($sd->valid()) { ?>
 
-    <!-- inicio da lista de tarefas -->
     <div class="col-md-4  mt-4 mb-2">
         <h6><?php echo implode("/", array_reverse(explode("-", $sd->current()->data))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
@@ -37,4 +38,3 @@ $sd = new ArrayIterator($values);
 }
 ?>
 
-<!-- Fim da lista de tarefas -->

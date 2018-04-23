@@ -52,13 +52,14 @@ class TarefasDAO {
         }
     }
 
-    public function listarAtividades($email) {
+    public function listarAtividades($email,$prioridade) {
         try {
 
             $db = Conexao::conecta();
-            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?)";
+            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?) ORDER BY prioridade = ? DESC";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
+            $rs->bindParam(2, $prioridade);
 
             if ($rs->execute()) {
                 $dados = array();

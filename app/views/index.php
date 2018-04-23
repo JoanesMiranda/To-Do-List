@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <ul class="navbar-nav navbar-sidenav">
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
-                        <a class="nav-link collapse" href="index.php?tarefas">
+                        <a class="nav-link collapse" href="index.php">
                             <i class="fa fa-fw fa-clipboard"> </i>
                             <span class="nav-link-text">Lista de Tarefas</span>
                         </a>
@@ -45,7 +45,7 @@
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="login.php">Idioma</a>
+                                <a href="#">Idioma</a>
                             </li>
                         </ul>
                     </li>
@@ -94,10 +94,10 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <?php echo $pagina = "Lista de Tarefas"; ?>
+                        Lista de Tarefas
                     </li>
                 </ol>
                 <?php include "./tarefas.php"; ?>

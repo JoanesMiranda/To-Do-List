@@ -39,9 +39,7 @@ class TarefasController {
     public function inserir($tarefa, $tarefasDAO) {
 
         if ($tarefasDAO->cadastrarTarefa($tarefa)) {
-            echo "<script> alert('Salvo com sucesso'); </script>";
-
-            echo "<script> document.location ='../views/index.php'; </script>";
+            echo header('Location: ../views/index.php');
         } else {
             echo "<script> alert('Erro ao Salvar'); </script>";
         }
@@ -50,8 +48,7 @@ class TarefasController {
     public function excluir($idTarefa, $tarefasDAO) {
 
         if ($tarefasDAO->excluirTarefa($idTarefa)) {
-
-            echo "<script> document.location ='../views/index.php'; </script>";
+            echo header('Location: ../views/index.php');
         } else {
             echo "<script> alert('Erro ao excluir a tarefa'); </script>";
         }

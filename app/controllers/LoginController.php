@@ -4,7 +4,9 @@
 
     $loginDAO = new LoginDAO();
     
-    $loginDAO->login($_POST['email'], $_POST['senha'].$_POST['email']);
+    $email = filter_input(INPUT_POST, 'email');
+    $senha = filter_input(INPUT_POST, 'senha');
+    $loginDAO->login($email, $senha.$email);
         
 class LoginController {
     

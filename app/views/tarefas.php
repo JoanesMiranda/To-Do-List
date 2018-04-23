@@ -14,9 +14,9 @@ if (!isset($_SESSION["email"])) {
             <button class="btn btn-sm btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" id="btnTarefas" >
                 <i class="fa fa-fw fa-plus-square"> </i>Nova Tarefa
             </button> 
-            <a class="btn btn-sm btn-danger" href="#"  id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Alta</a>
-            <a class="btn btn-sm btn-warning" href="#" id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Media</a>
-            <a class="btn btn-sm btn-info" href="#" id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Baixa</a>
+            <a class="btn btn-sm btn-danger" href="index.php?prioridade=alta"  id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Alta</a>
+            <a class="btn btn-sm btn-warning" href="index.php?prioridade=media" id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Media</a>
+            <a class="btn btn-sm btn-info" href="index.php?prioridade=baixa" id="btnTarefas"><i class="fa fa-fw fa-tags"></i>Prioridade Baixa</a>
         </div>
         <!-- Fim dos botões da lista de tarefas-->
     </div>
