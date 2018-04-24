@@ -3,12 +3,20 @@
 include '../models/TarefasDAO.php';
 include '../models/Conexao.php';
 
-
 $email = $_SESSION['email'];
 $prioridade = filter_input(INPUT_GET, 'prioridade');
 $tarefasDAO = new TarefasDAO();
-$values = $tarefasDAO->listarAtividades($email, $prioridade);
-$sd = new ArrayIterator($values);
+$tarefas = $tarefasDAO->listarAtividades($email, $prioridade);
+
+$pesquisar = filter_input(INPUT_POST, 'pesquisar');
+$action = filter_input(INPUT_POST, 'action');
+$tarefasLike = $tarefasDAO->listarTarefasByLike($email, $pesquisar);
+
+if ($action == 'pesquisar') {
+    $sd = new ArrayIterator($tarefasLike);
+} else {
+    $sd = new ArrayIterator($tarefas);
+}
 ?>
 
 <?php while ($sd->valid()) { ?>

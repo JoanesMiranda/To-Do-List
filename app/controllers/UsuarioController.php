@@ -7,7 +7,7 @@ include '../models/Login.php';
 include '../models/LoginDAO.php';
 
 $usuarioController = new UsuarioController();
-$usuarioDao = new UsuarioDAO();
+$usuarioDAO = new UsuarioDAO();
 $loginDAO = new LoginDAO();
 
 if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
@@ -25,7 +25,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     $login = new Login($email, $senha, $fk);
 
     if ($action == "salvar") {
-        $usuarioController->inserir($usuario, $usuarioDao, $login, $loginDAO);
+        $usuarioController->inserir($usuario, $usuarioDAO, $login, $loginDAO);
     }
 }
 

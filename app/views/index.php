@@ -16,17 +16,16 @@
         if (!isset($_SESSION["email"])) {
             echo "<script> document.location = './login.php'; </script>";
             exit();
-        } 
+        }
         if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
             unset($_SESSION["email"]);
             echo "<script> document.location = './login.php'; </script>";
             exit();
         }
-    
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href=""><?php //echo $usuarioDao->retornaUsuario($email)?></a>
+            <a class="navbar-brand" href=""><?php //echo $usuarioDao->retornaUsuario($email) ?></a>
             <button class="navbar-toggler navbar-toggler-rigth" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -63,11 +62,12 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Inicio do item pesquisar do topo -->
                     <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                        <form method="POST" action="index.php" class="form-inline my-2 my-lg-0 mr-lg-2">
+                            <input type="hidden" name="action" value="pesquisar">
                             <div class="input-group">
-                                <input type="search" class="form-control" placeholder="Pesquisar por...">
+                                <input type="search" name="pesquisar" class="form-control" placeholder="Pesquisar por...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-info" type="button">
+                                    <button class="btn btn-info" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>

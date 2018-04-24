@@ -52,7 +52,7 @@ class TarefasDAO {
         }
     }
 
-    public function listarAtividades($email,$prioridade) {
+    public function listarAtividades($email, $prioridade) {
         try {
 
             $db = Conexao::conecta();
@@ -82,6 +82,27 @@ class TarefasDAO {
             $prioridade = "badge-info";
         }
         return $prioridade;
+    }
+
+    public function listarTarefasByLike($email, $titulo) {
+        try {
+
+            $db = Conexao::conecta();
+            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?)"
+                    . " AND tarefas.titulo LIKE '%" . $titulo . "%'";
+            $rs = $db->prepare($sql);
+            $rs->bindParam(1, $email);
+
+            if ($rs->execute()) {
+                $dados = array();
+                while ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
+                    $dados[] = $registro;
+                }
+                return $dados;
+            }
+        } catch (PDOException $ex) {
+            echo "erro ao listar as tarefas" . $ex->getMessage();
+        }
     }
 
     public function excluirTarefa($id) {
