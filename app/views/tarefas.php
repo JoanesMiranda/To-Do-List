@@ -85,10 +85,6 @@ if (!isset($_SESSION["email"])) {
     </div>
     <!-- Fim Formulario Modal Nova Tarefa-->
 
-    <!-- Inicio Formulario Modal EditarTarefa -->
-    <?php include './editarTarefa.php' ?>
-    <!-- Fim Formulario Modal Editar Tarefa-->
-
     <!-- inicio da lista de tarefas -->
     <div class="row">
         <?php include './cardsTarefas.php'; ?>

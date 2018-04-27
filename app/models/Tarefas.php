@@ -2,6 +2,7 @@
 
 class Tarefas {
 
+    private $idtarefas;
     private $titulo;
     private $data;
     private $descricao;
@@ -9,14 +10,22 @@ class Tarefas {
     private $status_tarefa;
     private $fk_usuario;
 
-    public function __construct($titulo,$data, $descricao, $prioridade, 
-            $status_tarefa, $fk_usuario) {
+    public function __construct($idTareas, $titulo, $data, $descricao, $prioridade, $status_tarefa, $fk_usuario) {
+        $this->idtarefas = $idTareas;
         $this->titulo = $titulo;
         $this->data = $data;
         $this->descricao = $descricao;
         $this->prioridade = $prioridade;
         $this->status_tarefa = $status_tarefa;
         $this->fk_usuario = $fk_usuario;
+    }
+
+    function getIdtarefas() {
+        return $this->idtarefas;
+    }
+
+    function setIdtarefas($idtarefas) {
+        $this->idtarefas = $idtarefas;
     }
 
     function getTitulo() {

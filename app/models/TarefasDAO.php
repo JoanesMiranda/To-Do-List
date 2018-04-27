@@ -117,4 +117,35 @@ class TarefasDAO {
         }
     }
 
+    public function atualizarTarefa(Tarefas $tarefa) {
+        try {
+            $db = Conexao::conecta();
+            $sql = "UPDATE tarefas SET titulo = ?,data = ?"
+                    . ",descricao = ?,prioridade = ?,status_tarefa = ? WHERE idtarefas = ?";
+
+            $stmt = $db->prepare($sql);
+            $titulo = $tarefa->getTitulo();
+            $stmt->bindParam(1, $titulo);
+
+            $data = implode("/", array_reverse(explode("/", $tarefa->getData())));
+            $stmt->bindParam(2, $data);
+
+            $descricao = $tarefa->getDescricao();
+            $stmt->bindParam(3, $descricao);
+
+            $prioridade = $tarefa->getPrioridade();
+            $stmt->bindParam(4, $prioridade);
+
+            $status = $tarefa->getStatus_tarefa();
+            $stmt->bindParam(5, $status);
+
+            $idTarefa = $tarefa->getIdtarefas();
+            $stmt->bindParam(6, $idTarefa);
+
+            return $stmt->execute();
+        } catch (PDOException $ex) {
+            echo "<script> alert('Erro ao atualizar tarefa'); </script> " . $ex->getMessage();
+        }
+    }
+
 }

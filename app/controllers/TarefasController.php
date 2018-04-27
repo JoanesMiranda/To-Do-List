@@ -19,11 +19,25 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
     $prioridade = filter_input(INPUT_POST, 'prioridade');
     $status = filter_input(INPUT_POST, 'statusTarefa');
     $fk = $tarefasDAO->retornaIdUsuario($email);
-    $tarefa = new Tarefas($titulo, $data, $descricao, $prioridade, $status, $fk);
-
+    $tarefa = new Tarefas(0,$titulo, $data, $descricao, $prioridade, $status, $fk);
+    
+    $editTitulo = filter_input(INPUT_POST, 'editTitulo');
+    $editTData = filter_input(INPUT_POST, 'editData');
+    $editDescricao = filter_input(INPUT_POST, 'editDescricao');
+    $editPrioridade = filter_input(INPUT_POST, 'editPrioridade');
+    $editStatus = filter_input(INPUT_POST, 'editStatus');
+    $idEditTArefa = filter_input(INPUT_POST, 'idTarefa');
+    
+    $tarefa = new Tarefas($idEditTArefa, $editTitulo, $editTData,$editDescricao, $editPrioridade, $editStatus,0);
+    
     if ($action == "salvar") {
         $tarefaController->inserir($tarefa, $tarefasDAO);
+    } elseif ($action == "atualizar") {
+        $tarefaController->atualizar($tarefa, $tarefasDAO);
     }
+    
+    
+    
 } else if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'GET') {
     $action = filter_input(INPUT_GET, 'action');
 
@@ -51,6 +65,15 @@ class TarefasController {
             echo header('Location: ../views/index.php');
         } else {
             echo "<script> alert('Erro ao excluir a tarefa'); </script>";
+        }
+    }
+    
+      public function atualizar($tarefa, $tarefasDAO) {
+
+        if ($tarefasDAO->atualizarTarefa($tarefa)) {
+            echo header('Location: ../views/index.php');
+        } else {
+            echo "<script> alert('Erro ao Salvar'); </script>";
         }
     }
 
