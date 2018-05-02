@@ -1,17 +1,17 @@
 
 #btnTarefas{
     min-width: 140px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 .msg-erro{
     color: red; font-size:12px;
 }
 
 #cardsTarefas{
-    max-height: 200px;
-    max-height: 270px;
-    min-height: 270px;
-    min-width:  250px;
+    max-height: 90%;
+    min-height: 90%;
+    max-width:  100%;
+    min-width:  100%;
 }
 
 

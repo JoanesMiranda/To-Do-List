@@ -30,7 +30,7 @@ if ($action == 'pesquisar') {
                         <i class="fa fa-fw fa-tags badge badge-pill <?php echo $tarefasDAO->retornaPrioridade($sd->current()->prioridade); ?>"> </i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item badge-light" href="#<?php echo $sd->current()->idtarefas;?>" data-target="#<?php echo $sd->current()->idtarefas;?>" data-toggle="modal">Editar</a>
+                        <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas;?>" data-toggle="modal">Editar</a>
                         <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir ">Excluir</a>
                     </div>
                 </div>
@@ -52,26 +52,29 @@ if ($action == 'pesquisar') {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="../controllers/TarefasController.php" id="formEditarTarefa" name="formEditarTarefa">
+                <form method="POST" action="../controllers/TarefasController.php"  id="formEditarTarefa" name="formEditarTarefa">
                     <input type="hidden" name="action" value="atualizar">
                     <input type="hidden" name="idTarefa" value="<?php echo $sd->current()->idtarefas; ?>">
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="titulo">Titulo</label>
-                                <input type="text" class="form-control" name="editTitulo" value="<?php echo $sd->current()->titulo; ?>" id="editTitulo" placeholder="Titulo da Tarefa">
+                                <input type="text" class="form-control" name="editTitulo" value="<?php echo $sd->current()->titulo; ?>" 
+                                       id="editTitulo" placeholder="Titulo da Tarefa" required="" maxlength="45">
                                 <span class='msg-erro msg-editTitulo'></span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="data">Data</label>
-                                <input type="text" class="form-control" name="editData" value="<?php echo implode("/", array_reverse(explode("-", $sd->current()->data))); ?>" id="editData">
+                                <input type="text" class="form-control" name="editData" value="<?php echo implode("/", array_reverse(explode("-", $sd->current()->data))); ?>" id="editData" required="">
                                 <span class='msg-erro msg-editData'></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="descrição">Descrição</label>
-                                <textarea class="form-control" name="editDescricao" id="editDescricao" rows="3" placeholder="Descreva a sua Tarefa..."><?php echo $sd->current()->descricao; ?></textarea>
+                                <textarea class="form-control" name="editDescricao" id="editDescricao" rows="3"
+                                          placeholder="Descreva a sua Tarefa..." required="" maxlength="145">
+                                              <?php echo $sd->current()->descricao; ?></textarea>
                                 <span class='msg-erro msg-editDescricao'></span>
                             </div>
                         </div>
@@ -131,7 +134,7 @@ if ($action == 'pesquisar') {
             </div>
         </div>
     </div>
-    <!-- Inicio editar modal tarefas  -->
+    <!-- Fim editar modal tarefas  -->
     <script src="../../assets/bibliotecas/jquery/validaEditarTarefa.js"></script>
     <?php
     $sd->next();
