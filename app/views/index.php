@@ -1,3 +1,8 @@
+<?php
+include '../models/TarefasDAO.php';
+include '../models/Conexao.php';
+include '../models/UsuarioDAO.php';
+?>
 ﻿<!doctype html>
 <html lang="pt-br">
     <head>
@@ -16,6 +21,9 @@
         if (!isset($_SESSION["email"])) {
             echo "<script> document.location = './login.php'; </script>";
             exit();
+        }else{
+            $email = $_SESSION['email'];
+            $usuarioDAO = new UsuarioDAO();
         }
         if (isset($_REQUEST["logout"]) && $_REQUEST["logout"] == true) {
             unset($_SESSION["email"]);
@@ -25,7 +33,7 @@
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href=""><?php //echo $usuarioDao->retornaUsuario($email) ?></a>
+            <a class="navbar-brand" href=""><?php echo $usuarioDAO->retornaUsuario($email)  ?></a>
             <button class="navbar-toggler navbar-toggler-rigth" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
