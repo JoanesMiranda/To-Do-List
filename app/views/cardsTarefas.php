@@ -72,9 +72,9 @@ if ($action == 'pesquisar') {
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="descrição">Descrição</label>
-                                <textarea class="form-control" name="editDescricao" id="editDescricao" rows="3"
-                                          placeholder="Descreva a sua Tarefa..." required="" maxlength="145">
-                                              <?php echo $sd->current()->descricao; ?></textarea>
+                                <textarea class="form-control" name="editDescricao"
+                                          id="editDescricao" rows="3" placeholder="Descreva a sua Tarefa..." required="" 
+                                          maxlength="145"><?php echo $sd->current()->descricao; ?></textarea>
                                 <span class='msg-erro msg-editDescricao'></span>
                             </div>
                         </div>

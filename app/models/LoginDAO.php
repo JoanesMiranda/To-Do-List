@@ -2,6 +2,23 @@
 
 class LoginDAO {
 
+   public function retornaIdUsuario($nome) {
+        try {
+            $db = Conexao::conecta();
+            $sql = "SELECT idpessoa FROM pessoa WHERE nome = ?";
+            $rs = $db->prepare($sql);
+            $rs->bindParam(1, $nome);
+            if ($rs->execute()) {
+                if ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
+                    return $registro->idpessoa;
+                }
+            }
+        } catch (PDOException $ex) {
+            echo "Erro ao retornar dados do usuario" . $ex->getMessage();
+        }
+    }
+    
+    
     public function salvarLogin(Login $login) {
 
         try {
@@ -17,35 +34,12 @@ class LoginDAO {
             $senha = md5($login->getSenha() . $email);
             $stmt->bindParam(2, $senha);
 
-            $fk_usuario = $login->getFk_usuario();
-            $stmt->bindParam(3, $fk_usuario);
+            $fk_pessoa = $login->getFk_pessoa();
+            $stmt->bindParam(3, $fk_pessoa);
 
             return $stmt->execute();
         } catch (PDOException $ex) {
-            $codigo = $ex->getCode();
-//           if($codigo == 23000){
-//                echo "<h5 style= 'color:red' align ='center'> Email Duplicado - "
-//                . "(O email digitado já está cadastrado no sistema)</h5>";
-//            }else{
-            echo "Error " . $ex->getMessage();
-//            }
-        }
-    }
-
-    public function retornaIdUsuario($nome) {
-        try {
-            $db = Conexao::conecta();
-            $sql = "SELECT idpessoa FROM pessoa WHERE nome = ?";
-            $rs = $db->prepare($sql);
-            $rs->bindParam(1, $nome);
-            if ($rs->execute()) {
-                $dados = array();
-                if ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
-                    return $registro->idpessoa;
-                }
-            }
-        } catch (PDOException $ex) {
-            echo "Erro ao retornar dados do usuario" . $ex->getMessage();
+            echo "Error ao salvar o login" . $ex->getMessage();
         }
     }
 

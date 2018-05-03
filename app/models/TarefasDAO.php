@@ -42,7 +42,6 @@ class TarefasDAO {
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
             if ($rs->execute()) {
-                $dados = array();
                 if ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
                     return $registro->idpessoa;
                 }

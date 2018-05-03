@@ -4,12 +4,12 @@ class Login {
 
     private $email;
     private $senha;
-    private $fk_usuario;
+    private $fk_pessoa;
     
-    public function __construct($email, $senha, $fk_usuario) {
+    public function __construct($email, $senha, $fk_pessoa) {
         $this->email = $email;
         $this->senha = $senha;
-        $this->fk_usuario = $fk_usuario;
+        $this->fk_pessoa = $fk_pessoa;
     }
 
     function getEmail() {
@@ -27,13 +27,19 @@ class Login {
     function setSenha($senha) {
         $this->senha = $senha;
     }
-
-    function getFk_usuario() {
-        return $this->fk_usuario;
+   
+    function getFk_pessoa() {
+        return $this->fk_pessoa;
     }
 
-    function setFk_usuario($fk_usuario) {
-        $this->fk_usuario = $fk_usuario;
+    function setFk_pessoa($fk_pessoa) {
+        $this->fk_pessoa = $fk_pessoa;
     }
+
+
+
+
+
+   
 
 }
