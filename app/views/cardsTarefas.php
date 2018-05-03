@@ -1,7 +1,5 @@
 
 <?php
-//include '../models/TarefasDAO.php';
-//include '../models/Conexao.php';
 
 $email = $_SESSION['email'];
 $prioridade = filter_input(INPUT_GET, 'prioridade');

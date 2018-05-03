@@ -21,7 +21,7 @@ include '../models/UsuarioDAO.php';
         if (!isset($_SESSION["email"])) {
             echo "<script> document.location = './login.php'; </script>";
             exit();
-        }else{
+        } else {
             $email = $_SESSION['email'];
             $usuarioDAO = new UsuarioDAO();
         }
@@ -34,18 +34,39 @@ include '../models/UsuarioDAO.php';
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <a class="navbar-brand" href="">Bem Vindo, 
-                <?php $nome = explode(" ",$usuarioDAO->retornaUsuario($email),5);  echo $nome[0]; ?></a>
+                <?php
+                $nome = explode(" ", $usuarioDAO->retornaUsuario($email), 5);
+                echo $nome[0];
+                ?></a>
             <button class="navbar-toggler navbar-toggler-rigth" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <ul class="navbar-nav navbar-sidenav">
+                    
+                    <!-- Inicio menu das tarefas  -->
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
-                        <a class="nav-link collapse" href="index.php">
-                            <i class="fa fa-fw fa-clipboard"> </i>
+                        <a class="nav-link nav-link-collapse collapse" href="#linksTarefas" data-toggle="collapse">
+                            <i class="fa fa-fw fa-clipboard"></i>
                             <span class="nav-link-text">Lista de Tarefas</span>
                         </a>
+                        <ul class="sidenav-second-level collapse " id="linksTarefas">
+                            <li>
+                                <a href="index.php?tarefas=f"> 
+                                    <i class="fa fa-fw fa-check"></i>
+                                    <span class="nav-link-text">Feitas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="index.php?tarefas=a">
+                                    <i class="fa fa-fw fa-exclamation-triangle"></i>
+                                    <span class="nav-link-text">A fazer</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+                    <!-- Fim menu das tarefas  -->
+                    <!-- Inicio menu configurações -->
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
                         <a class="nav-link nav-link-collapse collapse" href="#linksPaginas" data-toggle="collapse">
                             <i class="fa fa-fw fa-gears"> </i>
@@ -53,10 +74,11 @@ include '../models/UsuarioDAO.php';
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="#">Idioma</a>
+                                <a href="#"><i class="fa fa-fw fa-language"></i>Idioma</a>
                             </li>
                         </ul>
                     </li>
+                     <!-- Fim menu configurações -->
                 </ul>
                 <!-- Inicio do esconder menu lateral -->
                 <ul class="navbar-nav sidenav-toggler">

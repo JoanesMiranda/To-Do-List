@@ -1,12 +1,12 @@
 var form = document.getElementById("formRecuperar");
 
 if (form.addEventListener) {                   
-    form.addEventListener("submit", validaCadastro);
+    form.addEventListener("submit", validaRecuperar);
 } else if (form.attachEvent) {                  
-    form.attachEvent("onsubmit", validaCadastro);
+    form.attachEvent("onsubmit", validaRecuperar);
 }
 
-function validaCadastro(evt) {
+function validaRecuperar(evt) {
 
     var email = document.getElementById('email');
     var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
