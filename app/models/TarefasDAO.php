@@ -6,7 +6,7 @@ class TarefasDAO {
         try {
             $db = Conexao::conecta();
             $sql = "INSERT INTO tarefas "
-                    . "(titulo,data,descricao,prioridade,status_tarefa,fk_pessoa)"
+                    . "(titulo,data,descricao,prioridade,status_tarefa,fk_usuario)"
                     . " VALUES (?,?,?,?,?,?)";
 
             $stmt = $db->prepare($sql);
@@ -37,13 +37,12 @@ class TarefasDAO {
     public function retornaIdUsuario($email) {
         try {
             $db = Conexao::conecta();
-            $sql = "SELECT idpessoa FROM pessoa WHERE idpessoa"
-                    . " = (SELECT fk_pessoa FROM login WHERE email = ?)";
+            $sql = "SELECT idusuario FROM usuario WHERE email = ?";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
             if ($rs->execute()) {
                 if ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
-                    return $registro->idpessoa;
+                    return $registro->idusuario;
                 }
             }
         } catch (PDOException $ex) {
@@ -55,7 +54,7 @@ class TarefasDAO {
         try {
 
             $db = Conexao::conecta();
-            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?) ORDER BY prioridade = ? DESC";
+            $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?) ORDER BY prioridade = ? DESC";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
             $rs->bindParam(2, $prioridade);
@@ -87,7 +86,7 @@ class TarefasDAO {
         try {
 
             $db = Conexao::conecta();
-            $sql = "SELECT * FROM tarefas WHERE fk_pessoa = (SELECT fk_pessoa FROM login WHERE email = ?)"
+            $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?)"
                     . " AND tarefas.titulo LIKE '%" . $titulo . "%'";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);

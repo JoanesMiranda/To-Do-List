@@ -1,26 +1,27 @@
-
 <?php
+    $email = $_SESSION['email'];
+    $prioridade = filter_input(INPUT_GET, 'prioridade');
+    $tarefasDAO = new TarefasDAO();
+    $tarefas = $tarefasDAO->listarAtividades($email, $prioridade);
 
-$email = $_SESSION['email'];
-$prioridade = filter_input(INPUT_GET, 'prioridade');
-$tarefasDAO = new TarefasDAO();
-$tarefas = $tarefasDAO->listarAtividades($email, $prioridade);
+    $pesquisar = filter_input(INPUT_POST, 'pesquisar');
+    $action = filter_input(INPUT_POST, 'action');
+    $tarefasLike = $tarefasDAO->listarTarefasByLike($email, $pesquisar);
 
-$pesquisar = filter_input(INPUT_POST, 'pesquisar');
-$action = filter_input(INPUT_POST, 'action');
-$tarefasLike = $tarefasDAO->listarTarefasByLike($email, $pesquisar);
-
-if ($action == 'pesquisar') {
-    $sd = new ArrayIterator($tarefasLike);
-} else {
-    $sd = new ArrayIterator($tarefas);
-}
+    if ($action == 'pesquisar') {
+        $sd = new ArrayIterator($tarefasLike);
+    } else {
+        $sd = new ArrayIterator($tarefas);
+    }
+    //formata a data e hora para o formato de nome
+    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+    date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <?php while ($sd->valid()) { ?>
 
     <div class="col-md-4  mt-4 mb-2">
-        <h6><?php echo implode("/", array_reverse(explode("-", $sd->current()->data))); ?></h6>
+        <h6><?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($sd->current()->data))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
             <div class="card-header text-right">
                 <div class="dropdown" >
@@ -28,8 +29,8 @@ if ($action == 'pesquisar') {
                         <i class="fa fa-fw fa-tags badge badge-pill <?php echo $tarefasDAO->retornaPrioridade($sd->current()->prioridade); ?>"> </i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas;?>" data-toggle="modal">Editar</a>
-                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir ">Excluir</a>
+                        <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal">Editar</a>
+                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir">Excluir</a>
                     </div>
                 </div>
             </div>
