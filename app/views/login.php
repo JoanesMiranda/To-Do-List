@@ -15,6 +15,7 @@
                 <div class="card-header text-center badge-info">Login To-Do List</div>
                 <div class="card-body">
                     <form method="POST" action="../controllers/LoginController.php" name="formLogin" id="formLogin">
+                        <input type="hidden" name="action" value="login">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Digite Seu Email">

@@ -20,7 +20,8 @@
                         Digite seu email e nós enviaremos instruções sobre como redefinir sua senha.
                         </p>
                     </div>
-                    <form method="POST" action="" name="formRecuperar" id="formRecuperar">
+                    <form method="POST" action="../controllers/LoginController.php" name="formRecuperar" id="formRecuperar">
+                        <input type="hidden" name="action" value="email">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="Digite Seu Email">

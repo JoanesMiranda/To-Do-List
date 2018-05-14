@@ -9,8 +9,8 @@ class Usuario {
     private $numero;
     private $email;
     private $senha;
-
     
+  
     public function __construct($nome, $telefone, $endereco, $numero,$email, $senha) {
         $this->nome = $nome;
         $this->telefone = $telefone;
