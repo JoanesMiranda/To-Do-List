@@ -54,7 +54,7 @@ class TarefasDAO {
         try {
 
             $db = Conexao::conecta();
-            $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?) ORDER BY prioridade = ? DESC";
+            $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?) AND tarefas.status_tarefa = 'não concluida' ORDER BY prioridade = ? DESC";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
             $rs->bindParam(2, $prioridade);
@@ -87,7 +87,7 @@ class TarefasDAO {
 
             $db = Conexao::conecta();
             $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?)"
-                    . " AND tarefas.titulo LIKE '%" . $titulo . "%'";
+                    . " AND tarefas.titulo LIKE '%" . $titulo . "%' AND tarefas.status_tarefa = 'não concluido'";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
 
@@ -145,5 +145,28 @@ class TarefasDAO {
             echo "<script> alert('Erro ao atualizar tarefa'); </script> " . $ex->getMessage();
         }
     }
+    
+     public function listarTarefasFinalizadas($email) {
+        try {
+
+            $db = Conexao::conecta();
+            $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?) AND tarefas.status_tarefa = 'concluida' ORDER BY data ASC";
+            $rs = $db->prepare($sql);
+            $rs->bindParam(1, $email);
+        
+            if ($rs->execute()) {
+                $dados = array();
+                while ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
+                    $dados[] = $registro;
+                }
+                return $dados;
+            }
+        } catch (PDOException $ex) {
+            echo "erro ao listar as atividades" . $ex->getMessage();
+        }
+    }
+    
+    
+    
 
 }

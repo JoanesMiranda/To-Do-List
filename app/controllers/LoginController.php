@@ -3,9 +3,6 @@
 include '../models/LoginDAO.php';
 include '../models/Conexao.php';
 require '../../vendor/autoload.php';
-//require '../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-//require '../../vendor/phpmailer/phpmailer/src/Exception.php';
-//require '../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 $loginDAO = new LoginDAO();
 
@@ -18,6 +15,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
         $email = filter_input(INPUT_POST, 'email');
         $senha = filter_input(INPUT_POST, 'senha');
         $loginDAO->login($email, $senha . $email);
+        
     } else if ($action == "email") {
 
         //recebe email
@@ -42,7 +40,7 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
                 $mail->SMTPAuth = true;
                 $mail->Username = 'meuemail';
                 $mail->Password = 'minhasenha';
-                $mail->SMTPSecure = 'tls';
+                $mail->SMTPSecure = 'TLS';
                 $mail->Port = 587;
                 //Recipients
                 $mail->setFrom('meuemail', 'Mailer');

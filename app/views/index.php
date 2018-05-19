@@ -54,13 +54,7 @@ include '../models/UsuarioDAO.php';
                             <li>
                                 <a href="index.php?tarefas=f"> 
                                     <i class="fa fa-fw fa-check"></i>
-                                    <span class="nav-link-text">Feitas</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php?tarefas=a">
-                                    <i class="fa fa-fw fa-exclamation-triangle"></i>
-                                    <span class="nav-link-text">A fazer</span>
+                                    <span class="nav-link-text">Finalizadas</span>
                                 </a>
                             </li>
                         </ul>

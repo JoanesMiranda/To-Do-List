@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="nome">Nome Completo</label>
+                                    <label for="nome">Nome Completo *</label>
                                     <input type="text" name ="nome" id="nome" class="form-control" placeholder="Digite seu Nome">
                                      <span class='msg-erro msg-nome'></span>
                                 </div>
@@ -42,19 +42,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Email *</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Digite Seu Email">
                             <span class='msg-erro msg-email'></span>
                         </div>
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <label for="senha">Senha</label>
+                                    <label for="senha">Senha *</label>
                                     <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite Sua Senha">
                                     <span class='msg-erro msg-senha'></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="senha2">Confirmar Senha</label>
+                                    <label for="senha2">Confirmar Senha *</label>
                                     <input type="password" class="form-control" name="senha2" id="senha2" placeholder="Confirme Sua Senha">
                                     <span class='msg-erro msg-senha2'></span>
                                 </div>

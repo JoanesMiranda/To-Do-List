@@ -1,25 +1,34 @@
 <?php
-    $email = $_SESSION['email'];
-    $prioridade = filter_input(INPUT_GET, 'prioridade');
-    $tarefasDAO = new TarefasDAO();
-    $tarefas = $tarefasDAO->listarAtividades($email, $prioridade);
 
-    $pesquisar = filter_input(INPUT_POST, 'pesquisar');
-    $action = filter_input(INPUT_POST, 'action');
+$email = $_SESSION['email'];
+
+$tarefasDAO = new TarefasDAO();
+
+$prioridade = filter_input(INPUT_GET, 'prioridade');
+$pesquisar = filter_input(INPUT_POST, 'pesquisar');
+$action = filter_input(INPUT_POST, 'action');
+$concluida = filter_input(INPUT_GET, 'tarefas');
+
+
+if ($action == 'pesquisar') {
     $tarefasLike = $tarefasDAO->listarTarefasByLike($email, $pesquisar);
+    $sd = new ArrayIterator($tarefasLike);
+    
+} else if ($concluida == 'f') {
+    $tarefaConcluida = $tarefasDAO->listarTarefasFinalizadas($email);
+    $sd = new ArrayIterator($tarefaConcluida);
+} else {
+    $tarefas = $tarefasDAO->listarAtividades($email, $prioridade);
+    $sd = new ArrayIterator($tarefas);
+}
 
-    if ($action == 'pesquisar') {
-        $sd = new ArrayIterator($tarefasLike);
-    } else {
-        $sd = new ArrayIterator($tarefas);
-    }
-    //formata a data e hora para o formato de nome
-    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-    date_default_timezone_set('America/Sao_Paulo');
+//formata a data e hora para o formato de nome
+setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <?php while ($sd->valid()) { ?>
-
+    <!-- Inicio do cards tarefa -->
     <div class="col-md-4  mt-4 mb-2">
         <h6><?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($sd->current()->data))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
@@ -30,7 +39,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal">Editar</a>
-                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir">Excluir</a>
+                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir"  onclick ="return confirm('Deseja excluir a tarefa ?');">Excluir</a>
                     </div>
                 </div>
             </div>
@@ -40,6 +49,7 @@
             </div> 
         </div>
     </div>
+    <!-- Fim do cards tarefa -->
 
     <!-- Inicio editar modal tarefas  -->
     <div class="modal fade" id="<?php echo $sd->current()->idtarefas; ?>" tabindex="-1" role="dialog" aria-labelledby="editarTareModalLabel" aria-hidden="true">
@@ -57,20 +67,20 @@
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="titulo">Titulo</label>
+                                <label for="titulo">Titulo *</label>
                                 <input type="text" class="form-control" name="editTitulo" value="<?php echo $sd->current()->titulo; ?>" 
                                        id="editTitulo" placeholder="Titulo da Tarefa" required="" maxlength="45">
                                 <span class='msg-erro msg-editTitulo'></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="data">Data</label>
+                                <label for="data">Data *</label>
                                 <input type="text" class="form-control" name="editData" value="<?php echo implode("/", array_reverse(explode("-", $sd->current()->data))); ?>" id="editData" required="">
                                 <span class='msg-erro msg-editData'></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="descrição">Descrição</label>
+                                <label for="descrição">Descrição *</label>
                                 <textarea class="form-control" name="editDescricao"
                                           id="editDescricao" rows="3" placeholder="Descreva a sua Tarefa..." required="" 
                                           maxlength="145"><?php echo $sd->current()->descricao; ?></textarea>
@@ -79,7 +89,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="editPrioridade">Nivel de Prioridade</label>
+                                <label for="editPrioridade">Nivel de Prioridade *</label>
                                 <select name="editPrioridade" id="editPrioridade">
                                     <option disabled="true" value="" selected>Selecione...</option>
 
@@ -105,7 +115,7 @@
                                 <span class='msg-erro msg-editPrioridade'></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="editStatus">Andamento da Tarefa</label>
+                                <label for="editStatus">Andamento da Tarefa *</label>
                                 <select name="editStatus" id="editStatus">
                                     <option disabled="true" value="" selected>Selecione...</option>
                                     <option value="concluida" <?php

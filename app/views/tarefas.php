@@ -36,26 +36,28 @@ if (!isset($_SESSION["email"])) {
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="titulo">Titulo</label>
-                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo da Tarefa">
+                                <label for="titulo">Titulo *</label>
+                                <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo da Tarefa" maxlength="90">
+                                 <span class='msg-caracteres' id="msg-caracteres">limite 90 caracteres..</span>
                                 <span class='msg-erro msg-titulo'></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="data">Data</label>
+                                <label for="data">Data *</label>
                                 <input type="date" class="form-control" name="data" id="data">
                                 <span class='msg-erro msg-data'></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="descrição">Descrição</label>
-                                <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Descreva a sua Tarefa..."></textarea>
+                                <label for="descrição">Descrição *</label>
+                                <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Descreva a sua Tarefa..." maxlength="180"></textarea>
+                                <span class='msg-caracteres' id="msg-caracteres">limite 180 caracteres..</span>
                                 <span class='msg-erro msg-descricao'></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="prioridade">Nivel de Prioridade</label>
+                                <label for="prioridade">Nivel de Prioridade *</label>
                                 <select name="prioridade" id="prioridade">
                                     <option disabled="true" value="" selected>Selecione...</option>
                                     <option value="alta">Alta</option>
@@ -65,7 +67,7 @@ if (!isset($_SESSION["email"])) {
                                 <span class='msg-erro msg-prioridade'></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="statusTarefa">Andamento da Tarefa</label>
+                                <label for="statusTarefa">Andamento da Tarefa *</label>
                                 <select name="statusTarefa" id="statusTarefa">
                                     <option disabled="true" value="" selected>Selecione...</option>
                                     <option value="concluida">Concluida</option>
@@ -87,7 +89,8 @@ if (!isset($_SESSION["email"])) {
 
     <!-- inicio da lista de tarefas -->
     <div class="row">
-        <?php include './cardsTarefas.php'; ?>
+        <?php  include './cardsTarefas.php';?>
+        
     </div>
     <!-- Fim da lista de tarefas -->
 </div>
