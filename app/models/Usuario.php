@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Models;
 
 class Usuario {
 
@@ -9,9 +10,8 @@ class Usuario {
     private $numero;
     private $email;
     private $senha;
-    
-  
-    public function __construct($nome, $telefone, $endereco, $numero,$email, $senha) {
+
+    public function __construct($nome, $telefone, $endereco, $numero, $email, $senha) {
         $this->nome = $nome;
         $this->telefone = $telefone;
         $this->endereco = $endereco;
@@ -51,7 +51,7 @@ class Usuario {
     function setNumero($numero) {
         $this->numero = $numero;
     }
-    
+
     function getEmail() {
         return $this->email;
     }

@@ -1,8 +1,12 @@
 <?php
 
-include '../models/LoginDAO.php';
-include '../models/Conexao.php';
-require '../../vendor/autoload.php';
+require '../../bootstrap.php';
+
+use App\Models\LoginDAO;
+
+//include '../models/LoginDAO.php';
+//include '../models/Conexao.php';
+//require '../../vendor/autoload.php';
 
 $loginDAO = new LoginDAO();
 
@@ -15,7 +19,6 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
         $email = filter_input(INPUT_POST, 'email');
         $senha = filter_input(INPUT_POST, 'senha');
         $loginDAO->login($email, $senha . $email);
-        
     } else if ($action == "email") {
 
         //recebe email

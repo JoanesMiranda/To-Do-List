@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use PDO;
+
 class TarefasDAO {
 
     public function cadastrarTarefa(Tarefas $tarefa) {
@@ -29,7 +33,7 @@ class TarefasDAO {
             $stmt->bindParam(6, $fk);
 
             return $stmt->execute();
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "<script> alert('Erro ao Salvar Atividade'); </script> " . $ex->getMessage();
         }
     }
@@ -45,7 +49,7 @@ class TarefasDAO {
                     return $registro->idusuario;
                 }
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "Erro ao retornar dados do usuario" . $ex->getMessage();
         }
     }
@@ -66,7 +70,7 @@ class TarefasDAO {
                 }
                 return $dados;
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "erro ao listar as atividades" . $ex->getMessage();
         }
     }
@@ -86,8 +90,9 @@ class TarefasDAO {
         try {
 
             $db = Conexao::conecta();
+            //falta terminar esse select,, pois não está funcionado
             $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?)"
-                    . " AND tarefas.titulo LIKE '%" . $titulo . "%' AND tarefas.status_tarefa = 'não concluido'";
+                    . " AND tarefas.titulo LIKE '%" . $titulo . "%' AND tarefas.status_tarefa = 'não concluido' ";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
 
@@ -98,7 +103,7 @@ class TarefasDAO {
                 }
                 return $dados;
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "erro ao listar as tarefas" . $ex->getMessage();
         }
     }
@@ -110,7 +115,7 @@ class TarefasDAO {
             $stmt = $db->prepare($sql);
             $stmt->bindParam(1, $id);
             return $stmt->execute();
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "Erro ao excluir atividade" . $ex->getMessage();
         }
     }
@@ -141,19 +146,19 @@ class TarefasDAO {
             $stmt->bindParam(6, $idTarefa);
 
             return $stmt->execute();
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "<script> alert('Erro ao atualizar tarefa'); </script> " . $ex->getMessage();
         }
     }
-    
-     public function listarTarefasFinalizadas($email) {
+
+    public function listarTarefasFinalizadas($email) {
         try {
 
             $db = Conexao::conecta();
             $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?) AND tarefas.status_tarefa = 'concluida' ORDER BY data ASC";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
-        
+
             if ($rs->execute()) {
                 $dados = array();
                 while ($registro = $rs->fetch(PDO::FETCH_OBJ)) {
@@ -161,12 +166,9 @@ class TarefasDAO {
                 }
                 return $dados;
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "erro ao listar as atividades" . $ex->getMessage();
         }
     }
-    
-    
-    
 
 }

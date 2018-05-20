@@ -38,7 +38,7 @@ if (!isset($_SESSION["email"])) {
                             <div class="form-group col-md-6">
                                 <label for="titulo">Titulo *</label>
                                 <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo da Tarefa" maxlength="90">
-                                 <span class='msg-caracteres' id="msg-caracteres">limite 90 caracteres..</span>
+                                <span class='msg-caracteres' id="msg-caracteres">limite 90 caracteres..</span>
                                 <span class='msg-erro msg-titulo'></span>
                             </div>
                             <div class="form-group col-md-6">
@@ -89,8 +89,7 @@ if (!isset($_SESSION["email"])) {
 
     <!-- inicio da lista de tarefas -->
     <div class="row">
-        <?php  include './cardsTarefas.php';?>
-        
+        <?php include './cardsTarefas.php'; ?>
     </div>
     <!-- Fim da lista de tarefas -->
 </div>

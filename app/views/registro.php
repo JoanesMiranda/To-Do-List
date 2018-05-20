@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
-         <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
         <title>Registro</title>
     </head>
     <body class ="bg-dark">
@@ -21,7 +21,7 @@
                                 <div class="col-md-6">
                                     <label for="nome">Nome Completo *</label>
                                     <input type="text" name ="nome" id="nome" class="form-control" placeholder="Digite seu Nome">
-                                     <span class='msg-erro msg-nome'></span>
+                                    <span class='msg-erro msg-nome'></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefone">Celular</label>

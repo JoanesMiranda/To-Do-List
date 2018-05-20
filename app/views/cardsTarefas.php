@@ -1,4 +1,7 @@
 <?php
+require '../../bootstrap.php';
+
+use App\Models\TarefasDAO;
 
 $email = $_SESSION['email'];
 
@@ -13,7 +16,6 @@ $concluida = filter_input(INPUT_GET, 'tarefas');
 if ($action == 'pesquisar') {
     $tarefasLike = $tarefasDAO->listarTarefasByLike($email, $pesquisar);
     $sd = new ArrayIterator($tarefasLike);
-    
 } else if ($concluida == 'f') {
     $tarefaConcluida = $tarefasDAO->listarTarefasFinalizadas($email);
     $sd = new ArrayIterator($tarefaConcluida);
@@ -144,7 +146,6 @@ date_default_timezone_set('America/Sao_Paulo');
         </div>
     </div>
     <!-- Fim editar modal tarefas  -->
-    <script src="../../assets/bibliotecas/jquery/validaEditarTarefa.js"></script>
     <?php
     $sd->next();
 }

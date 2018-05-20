@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use PDO;
+
 class Conexao {
 
     protected static $db;
@@ -9,7 +13,7 @@ class Conexao {
             self::$db = new PDO("mysql:host=localhost; dbname=todolist", "root", "root");
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$db->exec('SET NAMES utf8');
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             die("Connection Error: " . $e->getMessage());
         }
     }

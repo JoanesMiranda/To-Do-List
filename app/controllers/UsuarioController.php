@@ -1,10 +1,16 @@
 <?php
 
-include '../models/Conexao.php';
-include '../models/Login.php';
-include '../models/LoginDAO.php';
-include '../models/Usuario.php';
-include '../models/UsuarioDAO.php';
+require '../../bootstrap.php';
+
+use App\Models\LoginDAO;
+use App\Models\Usuario;
+use App\Models\UsuarioDAO;
+
+//include '../models/Conexao.php';
+//include '../models/Login.php';
+//include '../models/LoginDAO.php';
+//include '../models/Usuario.php';
+//include '../models/UsuarioDAO.php';
 
 $usuarioController = new UsuarioController();
 $usuarioDAO = new UsuarioDAO();

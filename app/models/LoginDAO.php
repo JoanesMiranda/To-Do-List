@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use PDO;
+
 class LoginDAO {
 
     public function retornaIdUsuario($nome) {
@@ -13,7 +17,7 @@ class LoginDAO {
                     return $registro->idusuario;
                 }
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "Erro ao retornar dados do usuario" . $ex->getMessage();
         }
     }
@@ -53,7 +57,7 @@ class LoginDAO {
             $stmt->bindParam(2, $email);
 
             return $stmt->execute();
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "<script> alert('Erro ao atualizar senha do usuario'); </script> " . $ex->getMessage();
         }
     }
@@ -69,7 +73,7 @@ class LoginDAO {
             if ($rs->execute()) {
                 return $registro = $rs->fetch(PDO::FETCH_OBJ);
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             //echo "<script> alert('Email não cadastrado no sistema'); </script> ";
         }
     }

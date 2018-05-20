@@ -1,7 +1,7 @@
 <?php
-include '../models/TarefasDAO.php';
-include '../models/Conexao.php';
-include '../models/UsuarioDAO.php';
+require '../../bootstrap.php';
+
+use App\Models\UsuarioDAO;
 ?>
 ﻿<!doctype html>
 <html lang="pt-br">
@@ -43,7 +43,7 @@ include '../models/UsuarioDAO.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <ul class="navbar-nav navbar-sidenav">
-                    
+
                     <!-- Inicio menu das tarefas  -->
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
                         <a class="nav-link nav-link-collapse collapse" href="#linksTarefas" data-toggle="collapse">
@@ -72,7 +72,7 @@ include '../models/UsuarioDAO.php';
                             </li>
                         </ul>
                     </li>
-                     <!-- Fim menu configurações -->
+                    <!-- Fim menu configurações -->
                 </ul>
                 <!-- Inicio do esconder menu lateral -->
                 <ul class="navbar-nav sidenav-toggler">

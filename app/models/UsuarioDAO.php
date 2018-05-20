@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+
+use PDO;
+
 class UsuarioDAO {
 
     public function salvarUsuario(Usuario $usuario) {
@@ -30,7 +34,7 @@ class UsuarioDAO {
             $stmt->bindParam(6, $senha);
 
             return $stmt->execute();
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             $codigo = $ex->getCode();
             if ($codigo == 23000) {
                 echo "<script> alert('O email digitado já está cadastrado no sistema'); </script>";
@@ -52,7 +56,7 @@ class UsuarioDAO {
                     return $registro->nome;
                 }
             }
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo "Erro ao retornar dados do usuario" . $ex->getMessage();
         }
     }
