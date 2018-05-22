@@ -4,10 +4,6 @@ require '../../bootstrap.php';
 
 use App\Models\LoginDAO;
 
-//include '../models/LoginDAO.php';
-//include '../models/Conexao.php';
-//require '../../vendor/autoload.php';
-
 $loginDAO = new LoginDAO();
 
 

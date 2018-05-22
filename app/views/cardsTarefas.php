@@ -34,14 +34,21 @@ date_default_timezone_set('America/Sao_Paulo');
     <div class="col-md-4  mt-4 mb-2">
         <h6><?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($sd->current()->data))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
-            <div class="card-header text-right">
-                <div class="dropdown" >
-                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-tags badge badge-pill <?php echo $tarefasDAO->retornaPrioridade($sd->current()->prioridade); ?>"> </i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal">Editar</a>
-                        <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir"  onclick ="return confirm('Deseja excluir a tarefa ?');">Excluir</a>
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-6 ">
+                        <input type="checkbox" name="itemImprimir" class="text-lefth"> 
+                    </div>
+                    <div class="col-6 ">
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-fw fa-tags badge badge-pill <?php echo $tarefasDAO->retornaPrioridade($sd->current()->prioridade); ?>"> </i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal">Editar</a>
+                                <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir"  onclick ="return confirm('Deseja excluir a tarefa ?');">Excluir</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

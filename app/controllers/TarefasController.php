@@ -5,10 +5,6 @@ require '../../bootstrap.php';
 use App\Models\Tarefas;
 use App\Models\TarefasDAO;
 
-//include '../models/Tarefas.php';
-//include '../models/TarefasDAO.php';
-//include '../models/Conexao.php';
-
 $tarefasDAO = new TarefasDAO();
 $tarefaController = new TarefasController();
 
