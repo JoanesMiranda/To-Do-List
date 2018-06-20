@@ -37,12 +37,12 @@ if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'POST') {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'joseane.tecst@gmail.com';
-                $mail->Password = 'jose@nes!#13579';
+                $mail->Username = 'meuemail';
+                $mail->Password = 'minhasenha';
                 $mail->SMTPSecure = 'TLS';
                 $mail->Port = 587;
                 //Recipients
-                $mail->setFrom('joseane.tecst@gmail.com', 'Mailer');
+                $mail->setFrom('meuemail', 'Mailer');
                 $mail->addAddress($email, 'Padrão');
 
                 $mail->isHTML(true);
