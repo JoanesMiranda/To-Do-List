@@ -92,7 +92,7 @@ class TarefasDAO {
             $db = Conexao::conecta();
             //falta terminar esse select,, pois não está funcionado
             $sql = "SELECT * FROM tarefas WHERE fk_usuario = (SELECT idusuario FROM usuario WHERE email = ?)"
-                    . " AND tarefas.titulo LIKE '%" . $titulo . "%' AND tarefas.status_tarefa = 'não concluido' ";
+                    . " AND status_tarefa = 'não concluida' AND tarefas.titulo LIKE '%" . $titulo . "%' ";
             $rs = $db->prepare($sql);
             $rs->bindParam(1, $email);
 

@@ -31,7 +31,7 @@ class UsuarioController {
     public function inserir($usuarioDAO, $usuario) {
         if ($usuarioDAO->salvarUsuario($usuario)) {
             echo "<script> alert('Salvo com sucesso'); </script>";
-            echo "<script> document.location= '../views/registro.php'; </script>";
+            echo "<script> document.location= '../../registro.php'</script>";
         } else {
             echo "erro ao cadastrar usuario";
         }

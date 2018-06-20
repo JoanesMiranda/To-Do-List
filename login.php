@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/estilos.css" >
         <title>Login</title>      
     </head>
     <body class ="bg-dark">
@@ -14,7 +14,7 @@
             <div class="card card-login mx-auto mt-5">
                 <div class="card-header text-center badge-info">Login To-Do List</div>
                 <div class="card-body">
-                    <form method="POST" action="../controllers/LoginController.php" name="formLogin" id="formLogin">
+                    <form method="POST" action="./app/controllers/LoginController.php" name="formLogin" id="formLogin">
                         <input type="hidden" name="action" value="login">
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -41,9 +41,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="../../assets/bibliotecas/jquery/validaLogin.js"></script>
-        <script src="../../assets/bibliotecas/jquery/jquery.min.js" ></script>
-        <script src="../../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
-        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
+        <script type="text/javascript" src="./assets/bibliotecas/jquery/validaLogin.js"></script>
+        <script src="./assets/bibliotecas/jquery/jquery.min.js" ></script>
+        <script src="./assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
+        <script src="./assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
     </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require '../../bootstrap.php';
+require './bootstrap.php';
 
 use App\Models\TarefasDAO;
 
@@ -24,15 +24,17 @@ if ($action == 'pesquisar') {
     $sd = new ArrayIterator($tarefas);
 }
 
+
 //formata a data e hora para o formato de nome
-setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
 date_default_timezone_set('America/Sao_Paulo');
+
 ?>
 
 <?php while ($sd->valid()) { ?>
     <!-- Inicio do cards tarefa -->
     <div class="col-md-4  mt-4 mb-2">
-        <h6><?php echo utf8_encode(strftime('%A, %d de %B de %Y', strtotime($sd->current()->data))); ?></h6>
+        <h6><?php echo ucfirst(strftime("%A, %d de %B de %Y", strtotime($sd->current()->data))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
             <div class="card-header">
                 <div class="row">
@@ -46,7 +48,7 @@ date_default_timezone_set('America/Sao_Paulo');
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item badge-light" href="" data-target="#<?php echo $sd->current()->idtarefas; ?>" data-toggle="modal">Editar</a>
-                                <a class="dropdown-item badge-light" href="../controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir"  onclick ="return confirm('Deseja excluir a tarefa ?');">Excluir</a>
+                                <a class="dropdown-item badge-light" href="app/controllers/TarefasController.php?idTarefa=<?php echo $sd->current()->idtarefas; ?>&action=excluir"  onclick ="return confirm('Deseja excluir a tarefa ?');">Excluir</a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +72,7 @@ date_default_timezone_set('America/Sao_Paulo');
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="../controllers/TarefasController.php"  id="formEditarTarefa" name="formEditarTarefa">
+                <form method="POST" action="app/controllers/TarefasController.php"  id="formEditarTarefa" name="formEditarTarefa">
                     <input type="hidden" name="action" value="atualizar">
                     <input type="hidden" name="idTarefa" value="<?php echo $sd->current()->idtarefas; ?>">
                     <div class="modal-body">

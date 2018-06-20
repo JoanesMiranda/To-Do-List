@@ -1,17 +1,22 @@
 <?php
-require '../../bootstrap.php';
+
+require './bootstrap.php';
 
 use App\Models\UsuarioDAO;
+
+//formata a data e hora para o formato de nome
+setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 ﻿<!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/estilos.css" >
         <title>Principal</title>
     </head>
 
@@ -63,12 +68,15 @@ use App\Models\UsuarioDAO;
                     <!-- Inicio menu configurações -->
                     <li class="nav-item" data-togle="tooltip" data-placement = "rigth">
                         <a class="nav-link nav-link-collapse collapse" href="#linksPaginas" data-toggle="collapse">
-                            <i class="fa fa-fw fa-gears"> </i>
-                            <span class="nav-link-text">Configurações</span>
+                            <i class="fa fa-fw fa-question-circle"> </i>
+                            <span class="nav-link-text">Ajuda</span>
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-language"></i>Idioma</a>
+                                <a href="#"><i class="fa fa-fw fa-info"></i>Sobre</a>
+                            </li>
+                            <li>
+                                <a href="download.php?file=<?php echo "arquivos/suporte.pdf"; ?>"><i class="fa fa-fw fa-support"></i>Suporte</a>
                             </li>
                         </ul>
                     </li>
@@ -139,11 +147,11 @@ use App\Models\UsuarioDAO;
             </footer>
             <!-- fim do rodapé da pagina -->
         </div>
-        <script src="../../assets/bibliotecas/jquery/validaNovaTarefa.js"></script>
-        <script src="../../assets/bibliotecas/jquery/validaEditarTarefa.js"></script>
-        <script src="../../assets/bibliotecas/jquery/jquery.min.js" ></script>
-        <script src="../../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
-        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
-        <script type="text/javascript" src="../../assets/js/sb-admin.js" ></script>
+        <script src="./assets/bibliotecas/jquery/validaNovaTarefa.js"></script>
+        <script src="./assets/bibliotecas/jquery/validaEditarTarefa.js"></script>
+        <script src="./assets/bibliotecas/jquery/jquery.min.js" ></script>
+        <script src="./assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
+        <script src="./assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
+        <script type="text/javascript" src="./assets/js/sb-admin.js" ></script>
     </body>
 </html>

@@ -4,13 +4,19 @@ if (!isset($_SESSION["email"])) {
     echo "<script> document.location = './login.php'; </script>";
     exit();
 }
+//formata a data e hora para o formato de nome
+setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+date_default_timezone_set('America/Sao_Paulo');
+
+
+
 ?>
 
 <div class="container-fluid">
     <div class="row">
         <!-- Inicio dos botões da lista de tarefas-->
         <div class="col-md-12">
-            <a class="btn btn-sm btn-secondary" href="#" id="btnTarefas"><i class="fa fa-fw fa-print"> </i>Imprimir</a> 
+            <a class="btn btn-sm btn-secondary" href="./imprimir/relatorio.php" target="blanck" id="btnTarefas"><i class="fa fa-fw fa-print"> </i>Imprimir</a> 
             <button class="btn btn-sm btn-secondary" type="button" data-toggle="modal" data-target="#exampleModal" id="btnTarefas" >
                 <i class="fa fa-fw fa-plus-square"> </i>Nova Tarefa
             </button> 
@@ -31,7 +37,7 @@ if (!isset($_SESSION["email"])) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="../controllers/TarefasController.php" name="formNovaTarefa" id="formNovaTarefa">
+                <form method="POST" action="./app/controllers/TarefasController.php" name="formNovaTarefa" id="formNovaTarefa">
                     <input type="hidden" name="action" value="salvar" >
                     <div class="modal-body">
                         <div class="form-row">

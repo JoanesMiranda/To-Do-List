@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/estilos.css" >
         <title>Recuperar Senha</title>
     </head>
     <body class ="bg-dark">
@@ -20,7 +20,7 @@
                         Digite seu email e nós enviaremos instruções sobre como redefinir sua senha.
                         </p>
                     </div>
-                    <form method="POST" action="../controllers/LoginController.php" name="formRecuperar" id="formRecuperar">
+                    <form method="POST" action="./app/controllers/LoginController.php" name="formRecuperar" id="formRecuperar">
                         <input type="hidden" name="action" value="email">
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -42,9 +42,9 @@
                 </div>
             </div>
         </div>
-        <script src="../../assets/bibliotecas/jquery/validaRecuperar.js" ></script>
-        <script src="../../assets/bibliotecas/jquery/jquery.min.js" ></script>
-        <script src="../../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
-        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
+        <script src="./assets/bibliotecas/jquery/validaRecuperar.js" ></script>
+        <script src="./assets/bibliotecas/jquery/jquery.min.js" ></script>
+        <script src="./assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js" ></script>
+        <script src="./assets/bibliotecas/jquery-easing/jquery.easing.min.js" ></script>
     </body>
 </html>

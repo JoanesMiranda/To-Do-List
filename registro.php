@@ -3,10 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/sb-admin.min.css" >
-        <link rel="stylesheet" type="text/css"  href="../../assets/css/estilos.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/bibliotecas/font-awesome/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/sb-admin.min.css" >
+        <link rel="stylesheet" type="text/css"  href="./assets/css/estilos.css" >
         <title>Registro</title>
     </head>
     <body class ="bg-dark">
@@ -14,7 +14,7 @@
             <div class="card card-register mx-auto mt-5">
                 <div class="card-header text-center badge-info">Criar uma Conta</div>
                 <div class="card-body">
-                    <form method="POST" action="../controllers/UsuarioController.php" name="formRegistro" id="formRegistro">
+                    <form method="POST" action="./app/controllers/UsuarioController.php" name="formRegistro" id="formRegistro">
                         <input type="hidden" name="action" value="salvar">
                         <div class="form-group">
                             <div class="form-row">
@@ -75,11 +75,11 @@
                 </div>
             </div>
         </div>
-        <script src="../../assets/bibliotecas/jquery/validaRegistro.js"></script>
-        <script src="../../assets/bibliotecas/jquery/jquery.min.js"></script>
-        <script src="../../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../../assets/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
-        <script type="text/javascript" src="../../assets/bibliotecas/jquery/jquery.maskedinput.min.js"></script>
+        <script src="./assets/bibliotecas/jquery/validaRegistro.js"></script>
+        <script src="./assets/bibliotecas/jquery/jquery.min.js"></script>
+        <script src="../assets/bibliotecas/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/bibliotecas/jquery-easing/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="./assets/bibliotecas/jquery/jquery.maskedinput.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 $('#telefone').mask('(99) 99999 - 9999');

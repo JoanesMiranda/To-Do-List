@@ -1,60 +1,75 @@
 <?php
 
-    require '../bootstrap.php';
-    
-    use App\Models\Conexao;
-    
-    define('FPDF_FONTPATH','font/');
-    ob_start ();
-    
-    $pdf = new FPDF('L', 'cm', 'A4');
-   // $pdf->Open();
-    $pdf->AddPage();
-    //$pdf->SetY(2);
-   // $pdf->SetTextColor(0,0,128);
+require '../bootstrap.php';
 
-    session_start();
-    if(isset($_SESSION["email"]))
-    {
-        $email = $_SESSION["email"];
-    }
-    else
-    {
-        echo "Usuario não logado";
-        exit();
-    }
-  
-    $db = Conexao::conecta();
-    $sql = $db->prepare("SELECT * FROM tarefas WHERE fk_usuario ="
-            . " (SELECT idusuario FROM usuario WHERE email = ?) AND status_tarefa = 'não concluida'");
-    $sql->bindParam(1, $email);
-    $sql->execute();
-    //$pdf->Image(realpath("../upload/teste.jpg"), 1,0,12);
-    $pdf->SetFont('Arial', 'B', 20);
-    $pdf->cell(0, 1, utf8_decode('Tarefas para serem realizadas'), 0, 1, 'C');
-    $pdf->Ln(2);
-    $pdf->SetFont('Arial', 'I', 12);
-    $pdf->cell(1, 1, '', 1, 0, 'C');
-    $pdf->cell(7, 1,'Titulo', 1, 0, 'C');
-    $pdf->cell(3, 1, 'Data', 1, 0, 'C');
-    $pdf->cell(13, 1, utf8_decode('Descricão'), 1, 0, 'C');
-    $pdf->cell(3, 1, 'Status', 1, 1, 'C');
+use App\Models\Conexao;
+
+$mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML("<h1 align =' center'>Tarefas a serem realizadas &nbsp; <img src='printer2.png'></img></h1>");
+$mpdf->SetDisplayMode("fullpage");
+
+$topo = "To-Do List";
+$mpdf->SetHTMLHeader($topo,'O',true);
+
+$mpdf->SetHTMLFooter('
+<table width="100%">
+    <tr>
+        <td width="33%">{DATE j-m-Y}</td>
+        <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+        <td width="33%" style="text-align: right;">Copyright To-Do List 2018</td>
+    </tr>
+</table>');
+
+
+session_start();
+if (isset($_SESSION["email"])) {
+    $email = $_SESSION["email"];
+} else {
+    echo "<script> document.location = '../login.php'; </script>";
+    exit();
+}
+
+//formata a data e hora para o formato de nome
+setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+date_default_timezone_set('America/Sao_Paulo');
+
+
+$db = Conexao::conecta();
+$sql = $db->prepare("SELECT * FROM tarefas WHERE fk_usuario ="
+        . " (SELECT idusuario FROM usuario WHERE email = ?) AND status_tarefa = 'não concluida'");
+$sql->bindParam(1, $email);
+$sql->execute();
+
+
+$html = '<table align = "center" style="width:80%">';
+foreach ($sql as $resultado) {
+
+    $titulo = $resultado["titulo"];
+    $data = $resultado["data"];
+    $nova_data = implode("-", array_reverse(explode("-", $data)));
+    $descricao = $resultado["descricao"];
+    $status = $resultado["status_tarefa"];
+    
+   $dt = ucfirst(strftime("%A, %d de %B de %Y", strtotime($nova_data)));
+
+    $html .= "<tr>
+                   <th align ='left'>$dt</th>
+               </tr>
+               <tr >
+                    <td style='border-style:solid; border-width:0.2px; border-color:black;'>$titulo</td>
+                </tr>
+                <tr>
+                    <td style='border-style:solid; border-width:0.2px; border-color:black;'>$descricao </td>
+                </tr>";
    
-    $cont = 0;
-    foreach ($sql as $resultado) {
-        
-        $titulo = utf8_decode($resultado["titulo"]);
-        $data = $resultado["data"];
-        $nova_data = implode("-", array_reverse(explode("-", $data)));
-        $descricao = utf8_decode($resultado["descricao"]);
-        $status = utf8_decode($resultado["status_tarefa"]);
-      
-        $pdf->cell(1, 1,++$cont, 1, 0, 'C');
-        $pdf->Cell(7, 1, $titulo, 1, 0, 'C');
-        $pdf->Cell(3, 1, $nova_data, 1, 0, 'C');
-        $pdf->Cell(13, 1, $descricao, 1, 0, 'C');
-        $pdf->Cell(3, 1, $status, 1, 1, 'C');
-      
-    }
-    $pdf->Output("arquivo.pdf","I");
+    $html.='<br> <br> <br>';
+}
+$html .='</table>';
+
+
+$mpdf->WriteHTML($html);
+$mpdf->Output();
+exit();
+
 ?>
+ 

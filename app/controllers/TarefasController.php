@@ -51,7 +51,8 @@ class TarefasController {
     public function inserir($tarefa, $tarefasDAO) {
 
         if ($tarefasDAO->cadastrarTarefa($tarefa)) {
-            echo header('Location: ../views/index.php');
+            echo header('Location: ../../index.php');
+           
         } else {
             echo "<script> alert('Erro ao Salvar'); </script>";
         }
@@ -60,7 +61,7 @@ class TarefasController {
     public function excluir($idTarefa, $tarefasDAO) {
 
         if ($tarefasDAO->excluirTarefa($idTarefa)) {
-            echo header('Location: ../views/index.php');
+            echo header('Location: ../../index.php');
         } else {
             echo "<script> alert('Erro ao excluir a tarefa'); </script>";
         }
@@ -69,7 +70,7 @@ class TarefasController {
     public function atualizar($tarefa, $tarefasDAO) {
 
         if ($tarefasDAO->atualizarTarefa($tarefa)) {
-            echo header('Location: ../views/index.php');
+            echo header('Location: ../../index.php');
         } else {
             echo "<script> alert('Erro ao Salvar'); </script>";
         }
