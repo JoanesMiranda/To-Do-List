@@ -1,5 +1,4 @@
 <?php
-
 require './bootstrap.php';
 
 use App\Models\UsuarioDAO;
@@ -38,7 +37,7 @@ date_default_timezone_set('America/Sao_Paulo');
         ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <a class="navbar-brand" href="">Bem Vindo, 
+            <a class="navbar-brand" href="index.php">Bem Vindo, 
                 <?php
                 $nome = explode(" ", $usuarioDAO->retornaUsuario($email), 5);
                 echo $nome[0];
@@ -73,10 +72,10 @@ date_default_timezone_set('America/Sao_Paulo');
                         </a>
                         <ul class="sidenav-second-level collapse " id="linksPaginas">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-info"></i>Sobre</a>
+                                <a href="?pagina=sobre"><i class="fa fa-fw fa-info"></i>Sobre</a>
                             </li>
                             <li>
-                                <a href="download.php?file=<?php echo "arquivos/suporte.pdf"; ?>"><i class="fa fa-fw fa-support"></i>Suporte</a>
+                                <a href="download.php?file=<?php echo "arquivos/help_to_do_list.pdf"; ?>"><i class="fa fa-fw fa-support"></i>Suporte</a>
                             </li>
                         </ul>
                     </li>
@@ -130,10 +129,22 @@ date_default_timezone_set('America/Sao_Paulo');
                         <a href="index.php">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        Lista de Tarefas
+                        <?php
+                        if (isset($_REQUEST['pagina']) && $_REQUEST['pagina'] == 'sobre') {
+                            echo $pagina = "Sobre";
+                        } else {
+                            echo $pagina = "Lista de Tarefas";
+                        }
+                        ?>
                     </li>
                 </ol>
-                <?php include "./tarefas.php"; ?>
+                <?php
+                if (isset($_REQUEST['pagina']) && $_REQUEST['pagina'] == 'sobre') {
+                    include "./sobre.php";
+                } else {
+                    include "./tarefas.php";
+                }
+                ?>
             </div>
             <!--Fim do corpo do site -->
 
