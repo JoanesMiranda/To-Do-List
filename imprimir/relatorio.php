@@ -30,7 +30,7 @@ if (isset($_SESSION["email"])) {
 }
 
 //formata a data e hora para o formato de nome
-setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+setlocale(LC_ALL, "pt_BR", "pt_BR", "pt_BR.utf-8", "portuguese");
 date_default_timezone_set('America/Sao_Paulo');
 
 
@@ -50,7 +50,7 @@ foreach ($sql as $resultado) {
     $descricao = $resultado["descricao"];
     $status = $resultado["status_tarefa"];
     
-   $dt = ucfirst(strftime("%A, %d de %B de %Y", strtotime($nova_data)));
+   $dt = ucfirst(utf8_encode(strftime("%A, %d de %B de %Y", strtotime($nova_data))));
 
     $html .= "<tr>
                    <th align ='left'>$dt</th>

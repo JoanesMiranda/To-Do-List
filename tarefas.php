@@ -7,9 +7,6 @@ if (!isset($_SESSION["email"])) {
 //formata a data e hora para o formato de nome
 setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
 date_default_timezone_set('America/Sao_Paulo');
-
-
-
 ?>
 
 <div class="container-fluid">

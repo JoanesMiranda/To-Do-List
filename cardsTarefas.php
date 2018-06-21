@@ -26,7 +26,7 @@ if ($action == 'pesquisar') {
 
 
 //formata a data e hora para o formato de nome
-setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+setlocale(LC_ALL, "pt_BR", "pt_BR", "pt_BR.utf-8", "portuguese");
 date_default_timezone_set('America/Sao_Paulo');
 
 ?>
@@ -34,7 +34,7 @@ date_default_timezone_set('America/Sao_Paulo');
 <?php while ($sd->valid()) { ?>
     <!-- Inicio do cards tarefa -->
     <div class="col-md-4  mt-4 mb-2">
-        <h6><?php echo ucfirst(strftime("%A, %d de %B de %Y", strtotime($sd->current()->data))); ?></h6>
+        <h6><?php echo ucfirst(utf8_encode(strftime("%A, %d de %B de %Y", strtotime($sd->current()->data)))); ?></h6>
         <div class="card card-login" id="cardsTarefas">  
             <div class="card-header">
                 <div class="row">
